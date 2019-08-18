@@ -12,7 +12,7 @@ public class Player : ScriptableObject
     public GameObject view;
     public Canvas health_UI_;
     public Canvas damage_effect_;
-    PlayerInfo info;
+    PlayerInfo info_;
     
     private void SetUp(string name, int hp, int power, int defence)
     {

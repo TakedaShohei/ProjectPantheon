@@ -10,14 +10,14 @@ using System.Collections.Generic;
 public class SkillInfo : ScriptableObject
 {
     private int used_turn_;
-    public List<SkillInfoData> SkillInfoList = new List<SkillInfoData>();
+    public List<SkillModel> SkillInfoList = new List<SkillModel>();
 
 
 }
 
 [System.Serializable]
 
-public class SkillInfoData
+public class SkillModel
 {
     public string name = "ファイア";
     public int id = 1;

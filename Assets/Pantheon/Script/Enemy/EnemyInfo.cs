@@ -9,7 +9,8 @@ using System.Collections.Generic;
 
 public class EnemyInfo : ScriptableObject
 {
-    public int current_hp_;
+    public List<EnemyModel> EnemyInfoList = new List<EnemyModel>();
+    private int current_hp_;
     List<SkillInfo> skill_list_;
     EnemyModel Model_;
 
@@ -22,8 +23,15 @@ public class EnemyInfo : ScriptableObject
 
 
 }
-
+[SerializeField]
 public class EnemyModel
 {
-    
+    private string name_;
+    private int level_;
+    private int id_;
+    private GameObject model_prefab_;
+    private int hp_;
+    private int power_;
+    private int defense_;
+    private List<SkillInfo> skill_list_;
 }

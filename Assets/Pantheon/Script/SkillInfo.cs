@@ -25,11 +25,5 @@ public class SkillModel
     public GameObject effect_prehab;
     
 
-/*- type_
-- name_
-- value_
-- effect_prefab_
-- id_*/
-
 }
  

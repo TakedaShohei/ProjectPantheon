@@ -8,26 +8,28 @@ using System.Collections.Generic;
 ]
 
 
-public class PlayerInfo {
-    int current_hp_;
-    List<SkillInfo> skill_list_;
-    PlayerModel Model;
+public class PlayerInfo : ScriptableObject
+{
+
+    public List<PlayerModel> PlayerInfoList = new List<PlayerModel>();
+    private int current_hp_;
+    private List<SkillInfo> skill_list_;
+    private PlayerModel Model;
 
 
 }
 
-[System.Serializable]
-
+[SerializeField]
 public class PlayerModel
 {
-    public string name_;
-    public int level_;
-    public int id_;
-    public GameObject model_prefab_;
-    public int hp_;
-    public int power_;
-    public int defense_;
-    public List<SkillInfo> skill_list_;
+    private string name_;
+    private int level_;
+    private int id_;
+    private GameObject model_prefab_;
+    private int hp_;
+    private int power_;
+    private int defense_;
+    private List<SkillInfo> skill_list_;
 
 
 

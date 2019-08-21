@@ -19,8 +19,17 @@ public class SkillInfo : ScriptableObject
 
 public class SkillModel
 {
-    public string name = "ファイア";
-    public int id = 1;
-    public int value = 10;
+    public string name_ = "ファイア";
+    public int id_ = 1;
+    public int value_ = 10;
+    public GameObject effect_prehab;
+    
+
+/*- type_
+- name_
+- value_
+- effect_prefab_
+- id_*/
 
 }
+ 

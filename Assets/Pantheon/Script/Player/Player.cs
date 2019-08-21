@@ -14,13 +14,9 @@ public class Player : ScriptableObject
     public Canvas damage_effect_;
     PlayerInfo info_;
     
-    private void SetUp(string name, int hp, int power, int defence)
+    private void SetUp(PlayerModel player)
     {
-        name_ = name;
-
-        hp_ = hp;
-        power_ = power;
-        defence_ = defence;
+        
 
 
     }

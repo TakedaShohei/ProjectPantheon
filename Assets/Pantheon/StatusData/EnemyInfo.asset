@@ -12,3 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8922c0749ad1349b1f04b3277a1683, type: 3}
   m_Name: EnemyInfo
   m_EditorClassIdentifier: 
+  EnemyInfoList:
+  - name_: 
+    level_: 0
+    id_: 0
+    model_prefab_: {fileID: 0}
+    hp_: 0
+    power_: 0
+    defense_: 0
+    skill_list_: []

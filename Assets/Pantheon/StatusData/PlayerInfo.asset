@@ -12,3 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856dd55956b8e1a4d9c9dd45c9225fa2, type: 3}
   m_Name: PlayerInfo
   m_EditorClassIdentifier: 
+  PlayerInfoList:
+  - name_: "\u30A4\u30CE\u30B7\u30AC\u30E9"
+    level_: 0
+    id_: 0
+    model_prefab_: {fileID: 0}
+    hp_: 0
+    power_: 0
+    defense_: 0
+    skill_list_:
+    - {fileID: 11400000, guid: 3230520549f5f834a949784e36211ca6, type: 2}

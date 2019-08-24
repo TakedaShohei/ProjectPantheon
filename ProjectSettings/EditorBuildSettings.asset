@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Pantheon/Scenes/Mypage.unity
+    guid: 704389dbceb047e429e41cf331acaa89
+  - enabled: 1
+    path: Assets/Pantheon/Scenes/SelectStage.unity
+    guid: 56ffdffb41ea73448addf240b4dffb59
   m_configObjects: {}

@@ -10,7 +10,7 @@ using System.Collections.Generic;
 public class StageInfo : ScriptableObject
 {
     public List<StageModel> StageInfoList = new List<StageModel>();
-
+   
 }
 [System.Serializable]
 
@@ -22,6 +22,13 @@ public class StageModel
         get { return name_; }
         protected set { name_ = value; }
     }
+    [SerializeField] private int id_;
+    public int Id
+    {
+        get { return id_; }
+        set {id_ = value; }
+    }
+
     [SerializeField] private GameObject button_;
     public GameObject Button
     {

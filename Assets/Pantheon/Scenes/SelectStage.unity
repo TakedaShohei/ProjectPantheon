@@ -430,7 +430,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "\u30B9\u30C6\u30FC\u30B81"
+  m_text: "\u30B9\u30C6\u30FC\u30B8"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5e1e165e1dde7a64e987238ab430d110, type: 2}
   m_sharedMaterial: {fileID: 21602222127956878, guid: 5e1e165e1dde7a64e987238ab430d110,
@@ -500,7 +500,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 683066083}
-    characterCount: 5
+    characterCount: 4
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -1147,7 +1147,6 @@ GameObject:
   - component: {fileID: 1199227699}
   - component: {fileID: 1199227698}
   - component: {fileID: 1199227697}
-  - component: {fileID: 1199227700}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1203,19 +1202,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1199227700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199227696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 895737eaeaf9fb84d861b417bfa2daed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas_: {fileID: 281773563}
 --- !u!1 &1294278052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,6 +1473,7 @@ GameObject:
   - component: {fileID: 1928466771}
   - component: {fileID: 1928466770}
   - component: {fileID: 1928466769}
+  - component: {fileID: 1928466772}
   m_Layer: 5
   m_Name: Dropdown
   m_TagString: Untagged
@@ -1561,18 +1548,18 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: "\u30B9\u30C6\u30FC\u30B8"
+      m_Image: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     - m_Text: "\u30B9\u30C6\u30FC\u30B81"
-      m_Image: {fileID: 0}
+      m_Image: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     - m_Text: "\u30B9\u30C6\u30FC\u30B82"
-      m_Image: {fileID: 0}
-    - m_Text: "\u30B9\u30C6\u30FC\u30B83"
-      m_Image: {fileID: 0}
+      m_Image: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1199227696}
-        m_MethodName: 
-        m_Mode: 3
+      - m_Target: {fileID: 1928466772}
+        m_MethodName: Init
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1620,6 +1607,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928466767}
   m_CullTransparentMesh: 0
+--- !u!114 &1928466772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928466767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 895737eaeaf9fb84d861b417bfa2daed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas_: {fileID: 281773563}
 --- !u!1 &2002642632
 GameObject:
   m_ObjectHideFlags: 0

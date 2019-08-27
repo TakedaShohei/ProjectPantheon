@@ -12,8 +12,8 @@ public class SelectStageScene : MonoBehaviour
 
     void Init()
     {
-        GameObject button_prefab = Resources.Load("Prefab/SelectStage/SelectStageButton") as GameObject;
-        StageInfo stage_info = Resources.Load("ScriptableObject/StageInfo") as StageInfo;
+        GameObject button_prefab = Resources.Load("Resources/prehab/SelectStage/SelectStageButton") as GameObject;
+        StageInfo stage_info = Resources.Load("Resources/ScriptableObject/StageInfo") as StageInfo;
         
         for(var i=0; i< stage_info.StageInfoList.Count; i++)
         {

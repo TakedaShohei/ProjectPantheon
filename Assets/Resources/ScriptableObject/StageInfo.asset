@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StageInfoList:
   - name_: "\u30B9\u30C6\u30FC\u30B81-1"
-    button_: {fileID: 0}
+    button_: {fileID: 7878324947274191362, guid: 165b137afa48c9e48be05971136b3b22,
+      type: 3}

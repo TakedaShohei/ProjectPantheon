@@ -9,12 +9,13 @@ public class StageInfoManage : MonoBehaviour
 
     StageModel model_ = null;
 
-    public void LoadingStageScene(StageModel model)
+    public void LoadingStageScene()
     {
-        model_ = model;
-        int id = model_.Id;
+        Debug.Log("Stage");
+        StageInfo stage_info = Resources.Load("ScriptableObject/StageInfo") as StageInfo;
+        int id = stage_info.StageInfoList.Count;
         Debug.Log("Stage" + id);
-        SceneManager.LoadScene("Stage"+id);
+        SceneManager.LoadScene(sceneName:"Stage" + id);
         
     }
 }

@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Pantheon/Scenes/SelectStage.unity
     guid: 56ffdffb41ea73448addf240b4dffb59
+  - enabled: 1
+    path: Assets/Pantheon/Scenes/Stage1.unity
+    guid: 903823d4650a11a4587b75e6e26d30e5
+  - enabled: 1
+    path: Assets/Pantheon/Scenes/Stage2.unity
+    guid: 90c575cbfb25bbc45aea1c58f90b46f7
+  - enabled: 1
+    path: Assets/Pantheon/Scenes/Stage3.unity
+    guid: bf6bdacf62465364f9588a3468c6485a
   m_configObjects: {}

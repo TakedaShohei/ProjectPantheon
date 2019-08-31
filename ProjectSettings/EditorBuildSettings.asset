@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Pantheon/Scenes/SelectStage.unity
     guid: 56ffdffb41ea73448addf240b4dffb59
   - enabled: 1
-    path: Assets/Pantheon/Scenes/Stage1.unity
+    path: Assets/Pantheon/Scenes/Battle.unity
     guid: 903823d4650a11a4587b75e6e26d30e5
   - enabled: 1
     path: Assets/Pantheon/Scenes/Stage2.unity

@@ -28,6 +28,7 @@ public class StageModel
         get { return id_; }
         set {id_ = value; }
     }
+    
 
     [SerializeField] private GameObject button_;
     public GameObject Button
@@ -35,4 +36,12 @@ public class StageModel
         get { return button_; }
         protected set { button_ = value; }
     }
+
+    [SerializeField] private BattleInfo battle_info_;
+    public BattleInfo BattleInfo
+    {
+        get { return battle_info_; }
+        protected set { battle_info_ = value; }
+    }
+
 }

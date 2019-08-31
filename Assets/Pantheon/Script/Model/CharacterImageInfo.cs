@@ -8,7 +8,7 @@ using UnityEngine.UI;
    order = 5)
 ]
 
-public class CharacterImage : MonoBehaviour
+public class CharacterImageInfo : MonoBehaviour
 {
     public List<CharacterModel> CharacterList = new List<CharacterModel>();
     

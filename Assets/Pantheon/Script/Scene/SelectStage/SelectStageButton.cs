@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SelectStageButton : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class SelectStageButton : MonoBehaviour
     {
         model_ = model;
         text_.text = model_.Name;
+
+    }
+
+    public void OnClick()
+    {
+        Debug.Log("Battle　" + model_.Id);
+        SceneManagerEx.LoadSceneWithArg("Battle", model_, LoadSceneMode.Single);
 
     }
 

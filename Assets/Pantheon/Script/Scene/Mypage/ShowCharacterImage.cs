@@ -7,7 +7,7 @@ public class ShowCharacterImage : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        CharacterImage image_ = Resources.Load("CharacterImage") as CharacterImage;
+        CharacterImageInfo image_ = Resources.Load("CharacterImage") as CharacterImageInfo;
     }
 
     // Update is called once per frame

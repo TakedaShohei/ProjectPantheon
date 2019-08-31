@@ -20,8 +20,7 @@ public class BattleModel
 {
     public int id_;
     public string name_;
-    private List<PlayerModel> player_list;
-    private List<EnemyModel> enemy_list;
-    private string background_prefab_;
+    public List<EnemyModel> enemy_list;
+    public string background_prefab_;
 
 }

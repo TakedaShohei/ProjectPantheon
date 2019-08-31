@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class StageBase : MonoBehaviour
+public class MypageScene : MonoBehaviour, ISceneWasLoaded
 {
-
+    public void OnSceneWasLoaded(object argument)
+    {
+    }
     // Use this for initialization
     void Start()
     {

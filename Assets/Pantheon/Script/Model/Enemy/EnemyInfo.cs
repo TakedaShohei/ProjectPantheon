@@ -35,4 +35,5 @@ public class EnemyModel
     [SerializeField] private int power_;
     [SerializeField] private int defense_;
     [SerializeField] private List<SkillInfo> skill_list_;
+    [SerializeField] private int position_;
 }

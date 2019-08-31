@@ -3,10 +3,15 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine.UI;
 
-public class SelectStageScene : MonoBehaviour
+public class SelectStageScene : MonoBehaviour, ISceneWasLoaded
 {
     [SerializeField]GameObject canvas_=null;
-    
+
+    public void OnSceneWasLoaded(object argument)
+    {
+        Debug.Log("OnSceneWasLoaded.");
+    }
+
     // Use this for initialization
     void Start()
     {

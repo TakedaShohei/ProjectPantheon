@@ -3,7 +3,11 @@ using System.Collections;
 
 public class BattleScene : MonoBehaviour, ISceneWasLoaded
 {
+    BattleMain battle_main_ = null;
     StageModel model_ = null;
+    
+   // [SerializeField] PlayerCommoandUI player_commaond_ui_ = null;
+
 
     public void OnSceneWasLoaded(object argument)
     {
@@ -13,6 +17,9 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
 
     void Setup()
     {
+
+        battle_main_ = new BattleMain();
+
         // 背景をロードして配置
         CreateBackground();
 
@@ -22,6 +29,7 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
         // 味方キャラクターのロードして配置
 
         // UIの初期化
+        //player_commaond_ui_.Setup(battle_main_);
 
         // 準備が整ったらバトルスタート
     }
@@ -30,6 +38,8 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     {
         // 一旦はバトルはリストの0番目のみ
         GameObject bg = Resources.Load(model_.BattleInfo.BattleInfoList[0].background_prefab_) as GameObject;
+        Instantiate(bg, new Vector3(0, 0, 0), Quaternion.identity);
+        
     }
 
     void CreateEnemy()
@@ -52,6 +62,6 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     // Update is called once per frame
     void Update()
     {
-
+        battle_main_.Update();
     }
 }

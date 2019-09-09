@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SelectStageScene : MonoBehaviour, ISceneWasLoaded
 {
     [SerializeField]GameObject canvas_=null;
-
+    public StageInfo stage;
     public void OnSceneWasLoaded(object argument)
     {
         Debug.Log("OnSceneWasLoaded.");
@@ -22,6 +22,7 @@ public class SelectStageScene : MonoBehaviour, ISceneWasLoaded
     {
         GameObject button_prefab = Resources.Load("Prefab/SelectStage/SelectStageButton") as GameObject;
         StageInfo stage_info = Resources.Load("ScriptableObject/StageInfo") as StageInfo;
+        
         for(int i =0; i< stage_info.StageInfoList.Count; i++)
         {
             GameObject button = Instantiate(button_prefab, canvas_.transform);

@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 [CreateAssetMenu(
-   fileName = "CharacterImage",
-   menuName = "Pantheon/CharacterImage",
-   order = 5)
+   fileName = "CharaImageInfo",
+   menuName = "Pantheon/CharaImageInfo",
+   order = 7)
 ]
 
-public class CharacterImageInfo : MonoBehaviour
+public class CharacterImageInfo : ScriptableObject
 {
     public List<CharacterModel> CharacterList = new List<CharacterModel>();
     
 
 }
+[System.Serializable]
 
 public class CharacterModel
 {

@@ -15,7 +15,7 @@ public class ShowCharacterImage : MonoBehaviour
        
         background_image_ = this.GetComponent<Image>();
         background_image_.sprite = chara_;
-
+        //キャラクターの画像変更をユーザーに行わせたい
 
 
 

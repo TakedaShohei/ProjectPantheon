@@ -44,7 +44,7 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
 
     void CreateEnemy()
     {
-        BattleModel battle_model = model_.BattleInfo.BattleInfoList[0];
+        BattleInfo.BattleModel battle_model = model_.BattleInfo.BattleInfoList[0];
         foreach(EnemyModel enemy in battle_model.enemy_list)
         {
 

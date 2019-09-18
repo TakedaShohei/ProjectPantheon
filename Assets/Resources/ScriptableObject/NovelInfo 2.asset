@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2996c3f18e933ed4ca84fc2ca2ab4a4d, type: 3}
-  m_Name: NovelInfo
+  m_Name: NovelInfo 2
   m_EditorClassIdentifier: 
   comment: 
   NovelInfoList:
-  - id: 102001
-    parameters:
-    - 
+  - id: 0
+    parameters: []
+  - id: 0
+    parameters: []
+  - id: 0
+    parameters: []

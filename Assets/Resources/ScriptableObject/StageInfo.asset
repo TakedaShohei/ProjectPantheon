@@ -25,7 +25,3 @@ MonoBehaviour:
     id_: 3
     button_: {fileID: 0}
     battle_info_: {fileID: 11400000, guid: 1f2db63fecfe02f47ae08b175b36196a, type: 2}
-  - name_: "\u30B9\u30C6\u30FC\u30B82-1"
-    id_: 4
-    button_: {fileID: 0}
-    battle_info_: {fileID: 11400000, guid: 1f2db63fecfe02f47ae08b175b36196a, type: 2}

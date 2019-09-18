@@ -1,38 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 [CreateAssetMenu(
    fileName = "NovelInfo",
    menuName = "Pantheon/NovelInfo",
    order = 8)
 ]
-
-public class NovelInfo : ScriptableObject
-{
-    public List<NovelModel> NovelInfoList = new List<NovelModel>();
-
-}
-[System.Serializable]
-
-public class NovelModel
+public partial class NovelInfo : ScriptableObject
 {
     /// <summary>
-	/// ノベルデータの説明(注釈)
-	/// </summary>
-	[SerializeField]
+    /// ノベルデータの説明(注釈)
+    /// </summary>
+    [SerializeField]
     [Tooltip("ノベルデータの説明等(自由欄)")]
     public string comment;
-    /// <summary>
-	/// ノベルコマンド
-	/// </summary>
-	[SerializeField]
-    public List<Command> commands = new List<Command>();
 
-    /// <summary>
-	/// コマンドデータ
-	/// </summary>
-	[System.Serializable]
-    public class Command
+    [SerializeField]
+    public List<NovelModel> NovelInfoList = new List<NovelModel>();
+
+    [System.Serializable]
+    public class NovelModel
     {
         /// <summary>
         /// コマンドID
@@ -45,7 +33,11 @@ public class NovelModel
         /// </summary>
         [SerializeField]
         public string[] parameters;
+
+
     }
+
+
 }
 
 

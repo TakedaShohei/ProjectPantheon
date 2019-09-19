@@ -58,9 +58,10 @@ public class NovelSystem : MonoBehaviour
 			.ToDictionary(type => ((NovelCommandAttribute)type.GetCustomAttributes(typeof(NovelCommandAttribute), false).First()).id);
 
 		// ウィンドウは非表示にしておく(フェードがないとチラ見してしまう為)
-		var view = GetComponent<NovelView>();
+	/*	var view = GetComponent<NovelView>();
 		view.TextWindowImage.gameObject.SetActive(false);
 		view.NameTextWindowImage.gameObject.SetActive(false);
+     */
 	}
 
 	/// <summary>

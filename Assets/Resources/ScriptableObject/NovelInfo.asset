@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2996c3f18e933ed4ca84fc2ca2ab4a4d, type: 3}
   m_Name: NovelInfo
   m_EditorClassIdentifier: 
-  comment: 
+  comment: "\u30C7\u30E2\u7528\u306E\u30CE\u30D9\u30EB\u30C7\u30FC\u30BF\u3067\u3059"
   NovelInfoList:
   - id: 1
     parameters:
@@ -49,3 +49,66 @@ MonoBehaviour:
   - id: 101001
     parameters:
     - '@text'
+  - id: 101102
+    parameters: []
+  - id: 5
+    parameters: []
+  - id: 1
+    parameters:
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+  - id: 4
+    parameters:
+    - '#TextWrite'
+    - 1
+    - 4
+    - '@text'
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+    - "\u30C6\u30AD\u30B9\u30C8\u306E\u7C21\u6613\u66F8\u304D\u8FBC\u307F"
+  - id: 101002
+    parameters: []
+  - id: 101001
+    parameters:
+    - '@text'
+  - id: 101102
+    parameters: []
+  - id: 5
+    parameters: []
+  - id: 1
+    parameters:
+    - 
+  - id: 4
+    parameters:
+    - '#Title'
+    - 1
+    - 4
+    - '@titletext'
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 

@@ -6,10 +6,14 @@ public class ShowCharacterImage : MonoBehaviour
 {
 
     // Use this for initialization
+
+    
     
     void Start()
     {
+        
         CharacterImageInfo image_ = Resources.Load("ScriptableObject/CharaImageInfo") as CharacterImageInfo;
+        int id = image_.CharacterList[0].Id;
         Image background_image_=image_.CharacterList[0].Model;
         Sprite chara_ = image_.CharacterList[0].Show_Character;
        

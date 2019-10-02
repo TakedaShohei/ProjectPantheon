@@ -1,20 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BattlerBase : MonoBehaviour
+public class BattlerBase
 {
+    public enum ActionState
+    {
+        Wait,
+        Ready,
+        Action
+    }
+
     public int hp_;
     public int attack_;
     public int defence_;
-    // Use this for initialization
-    void Start()
+
+    ActionState state_;
+    public ActionState State
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        get { return state_; }
     }
 }

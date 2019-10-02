@@ -25,7 +25,8 @@ public class PlayerModel
     {
            get {return name_;}
            protected set {name_ =value;}
-                       }
+     }
+
     [SerializeField] private int level_;
     public int Level
     {

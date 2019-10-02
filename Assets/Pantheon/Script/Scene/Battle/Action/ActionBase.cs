@@ -30,7 +30,10 @@ public class ActionBase
 
     public void Damge(BattlerBase entiry, BattlerBase target)
     {
-        target.hp_ -= entiry.attack_ - target.defence_;
+        int damge = entiry.attack_ - target.defence_;
+        target.hp_ -= damge;
+        //target.hpber.update();
+        //tarege.ShowDamge(damge);
         // 演出
         //　死亡したら
     }

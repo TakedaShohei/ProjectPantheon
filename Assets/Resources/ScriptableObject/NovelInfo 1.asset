@@ -12,30 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2996c3f18e933ed4ca84fc2ca2ab4a4d, type: 3}
   m_Name: NovelInfo 1
   m_EditorClassIdentifier: 
-  comment: "\u30C7\u30E2\u7528\u306E\u30CE\u30D9\u30EB\u30C7\u30FC\u30BF\u3067\u3059"
+  comment: "\u30A4\u30E1\u30FC\u30B8\u7CFB\u30B3\u30DE\u30F3\u30C9\u306E\u30C6\u30B9\u30C8"
   NovelInfoList:
-  - id: 1
+  - id: 0
+    parameters: []
+  - id: 101002
+    parameters: []
+  - id: 102002
+    parameters: []
+  - id: 102003
+    parameters: []
+  - id: 101003
+    parameters: []
+  - id: 102001
     parameters:
-    - "\u305F\u3081\u3057"
-  - id: 4
+    - "\u30B7\u30B9\u30C6\u30E0\u3055\u3093"
+  - id: 101001
     parameters:
-    - 
+    - "\u30A4\u30E1\u30FC\u30B8\u7CFB\u30B3\u30DE\u30F3\u30C9\u306E\u30C6\u30B9\u30C8\n\u6587\u7AE0\u306E\u30C6\u30B9\u30C8\n"
+  - id: 99001003
+    parameters: []
+  - id: 102002
+    parameters: []
+  - id: 101002
+    parameters: []
+  - id: 101102
+    parameters: []
+  - id: 101001
+    parameters:
+    - "\u3053\u3093\u306B\u3061\u308F"
+  - id: 201001
+    parameters:
+    - Character
+    - Assets/Resources/Character/kohaku_normal.png
     - 0
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
-    - 
+    - 0
+    - 0
+    - True
+  - id: 201002
+    parameters:
+    - 0
+    - 0

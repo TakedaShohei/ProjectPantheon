@@ -9,54 +9,93 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameSystem : MonoBehaviour
 {
+   
     /// <summary>
     /// PC起動時のスクリーンサイズ
     /// </summary>
     [SerializeField]
     private Vector2 screenSize;
+    public Vector2 ScreenSize
+    {
+        get { return screenSize; }
+        protected set { screenSize = value; }
+    }
 
     /// <summary>
     /// ノベルシステム
     /// </summary>
     [SerializeField]
     private NovelSystem novelSystem;
+    public NovelSystem NovelSystem
+    {
+        get { return novelSystem; }
+        protected set { novelSystem = value; }
+    }
 
     /// <summary>
     /// TIPSオブジェクト(子供にTextがついている)
     /// </summary>
     [SerializeField]
     private GameObject tipsGameObject;
+    public GameObject TipsGameObject
+    {
+        get { return tipsGameObject; }
+        protected set { tipsGameObject = value; }
+    }
 
     /// <summary>
     /// 設定ボタン
     /// </summary>
     [SerializeField]
     private Button settingButton;
+    public Button SettingButton
+    {
+        get { return settingButton; }
+        protected set { settingButton = value; }
+    }
 
     /// <summary>
     /// ログボタン
     /// </summary>
     [SerializeField]
     private Button logButton;
+    public Button LogButton
+    {
+        get { return logButton; }
+        protected set { logButton = value; }
+    }
 
     /// <summary>
     /// 画面ルート
     /// </summary>
     [SerializeField]
     private Transform pageRoot;
+    public Transform PageRoot
+    {
+        get { return pageRoot; }
+        protected set { pageRoot = value; }
+    }
 
     /// <summary>
     /// ログ画面プレハブ
     /// </summary>
     [SerializeField]
     private GameObject logPagePrefab;
-
+    public GameObject LogPagePrefab
+    {
+        get { return logPagePrefab; }
+        protected set { logPagePrefab = value; }
+    }
     /// <summary>
     /// 設定画面プレハブ
     /// </summary>
     [SerializeField]
     private GameObject settingPagePrefab;
-
+    public GameObject SettingPagePrefab
+    {
+        get { return settingPagePrefab; }
+        protected set { settingPagePrefab = value; }
+    }
 
     /// <summary>
     /// Unity Event Awake
@@ -86,6 +125,8 @@ public class GameSystem : MonoBehaviour
             if (tipsGameObject.activeSelf)
             {
                 tipsGameObject.SetActive(false);
+            
+
             }
         }
         // リンクをクリックした

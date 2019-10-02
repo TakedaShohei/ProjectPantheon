@@ -183,49 +183,7 @@ public class NovelCommand
         public GameObject objectParameter = null;
     }
 
-    public interface HumanInterface {
-        void walk();
-    }
-
-    public class Man: HumanInterface
-    {
-        public void walk()
-        {
-            Debug.Log("aaa");
-        }
-    }
-
-    public class Woman : HumanInterface
-    {
-        public void walk()
-        {
-            Debug.Log("aaa");
-        }
-    }
-
-    public class Contller
-    {
-        List<HumanInterface> list = new List<HumanInterface>();
-        void init()
-        {
-            Man taro = new Man();
-            Woman hanako = new Woman();
-            
-            list.Add(taro);
-            list.Add(hanako);
-
-            allWalk();
-
-        }
-
-        void allWalk()
-        {
-            foreach (HumanInterface human in list)
-            {
-                human.walk();
-            }
-        }
-    }
+    
 
 
 
@@ -319,20 +277,7 @@ public class NovelCommand
         public IEnumerator Undo(SharedData share, SharedVariable variable) { yield break; }
         public IEnumerator Event(SharedData share, SharedVariable variable, EventData e) { yield break; }
 
-        IEnumerator NovelCommandInterface.Do(SharedData share, SharedVariable variable)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator NovelCommandInterface.Undo(SharedData share, SharedVariable variable)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator NovelCommandInterface.Event(SharedData share, SharedVariable variable, EventData e)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
     /// <summary>
 	/// テキストのクリア
@@ -349,20 +294,7 @@ public class NovelCommand
         public IEnumerator Undo(SharedData share, SharedVariable variable) { yield break; }
         public IEnumerator Event(SharedData share, SharedVariable variable, EventData e) { yield break; }
 
-        IEnumerator NovelCommandInterface.Do(SharedData share, SharedVariable variable)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator NovelCommandInterface.Undo(SharedData share, SharedVariable variable)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator NovelCommandInterface.Event(SharedData share, SharedVariable variable, EventData e)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 
     /// <summary>

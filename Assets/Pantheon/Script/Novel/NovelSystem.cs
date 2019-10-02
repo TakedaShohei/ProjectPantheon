@@ -18,12 +18,24 @@ public class NovelSystem : MonoBehaviour
 	/// </summary>
 	[SerializeField]
 	private bool isAutoRunning = true;
+    public bool IsAutoRunning
+    {
+        get { return isAutoRunning; }
+        protected set { isAutoRunning = value; }
+
+    }
 
 	/// <summary>
 	/// 実行するノベルデータ
 	/// </summary>
 	[SerializeField]
 	public NovelInfo novelData;
+    public NovelInfo NovelData
+    {
+        get { return novelData; }
+        protected set { novelData = value; }
+    }
+
 
 	/// <summary>
 	/// コマンドタイプと型のリスト
@@ -49,19 +61,19 @@ public class NovelSystem : MonoBehaviour
 	private void Awake()
 	{
 		// NovelCommandのインナークラスをすべて取得
+        
 		var nestedType = typeof(NovelCommand).GetNestedTypes(System.Reflection.BindingFlags.Public);
-
+        
 		// コマンド以外のクラスも含まれている為、除外しつつコマンドを集計
 		commandTypeDic = nestedType
 			.Where(type => 0 < type.GetCustomAttributes(typeof(NovelCommandAttribute), false).Length)
 			.Select(type => type)
 			.ToDictionary(type => ((NovelCommandAttribute)type.GetCustomAttributes(typeof(NovelCommandAttribute), false).First()).id);
-
-		// ウィンドウは非表示にしておく(フェードがないとチラ見してしまう為)
-	/*	var view = GetComponent<NovelView>();
+        // ウィンドウは非表示にしておく(フェードがないとチラ見してしまう為)
+        var view = GetComponent<NovelView>();
 		view.TextWindowImage.gameObject.SetActive(false);
 		view.NameTextWindowImage.gameObject.SetActive(false);
-     */
+     
 	}
 
 	/// <summary>
@@ -71,8 +83,10 @@ public class NovelSystem : MonoBehaviour
 	{
 		if (isAutoRunning)
 		{
-			Execute();
-		}
+           
+            Execute();
+
+        }
 	}
 
 	/// <summary>
@@ -125,8 +139,9 @@ public class NovelSystem : MonoBehaviour
 		// 全部削除してもいいと思うけども、あえてIDのところまでにしてみる
 		history.Remove(historyID);
 
-		// グループ呼び出し履歴を適応
-		var groupHistory = history.GetGroups(historyID);
+        // グループ呼び出し履歴を適応
+        
+        var groupHistory = history.GetGroups(historyID);
 		executer.sharedVariable.groupHistory = groupHistory;
 
 		// グループが積まれていれば、そのインデックスからスタート
@@ -149,13 +164,15 @@ public class NovelSystem : MonoBehaviour
 	{
 		if (variable == null)
 		{
-			variable = new NovelCommand.SharedVariable()
+
+            variable = new NovelCommand.SharedVariable()
 			{
 				index = 0,
 				handles = new Dictionary<string, GameObject>(),
 				values = new Dictionary<string, string>(),
 				groupValues = new Dictionary<string, string>(),
 				groupHistory = new Queue<NovelHistory.GroupData>(),
+
 			};
 		}
 

@@ -1,18 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Enemy : BattlerBase
 {
-
-    // Use this for initialization
-    void Start()
+    AIBase ai_ = null;
+    public AIBase AI
     {
-
+        get { return ai_; }
     }
 
-    // Update is called once per frame
-    void Update()
+    public Enemy(EnemyModel model)
     {
-
+        //hp_ = model.hp;
+        //ai_ = ai_list[model.ai_id];
+        
     }
+    
+    Dictionary<int,AIBase> ai_list = new Dictionary<int, AIBase>()
+    {
+        { 1, new AISlime() }
+    };
+
 }

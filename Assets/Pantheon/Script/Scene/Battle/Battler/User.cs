@@ -3,16 +3,8 @@ using System.Collections;
 
 public class User : BattlerBase
 {
-
-    // Use this for initialization
-    void Start()
+    public User(PlayerModel model)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        hp_ = model.Hp;
     }
 }

@@ -58,7 +58,7 @@ public class NovelView : MonoBehaviour
     public Image TextWindowImage
     {
         get { return textWindowImage; }
-        protected set { TextWindowImage = value; }
+        protected set { textWindowImage = value; }
     }
 
     [SerializeField]
@@ -71,27 +71,64 @@ public class NovelView : MonoBehaviour
 
     [SerializeField]
     private Image nextIconImage;
-    public Image NextIconImage { get { return nextIconImage; } }
+    public Image NextIconImage
+    {
+        get { return nextIconImage; }
+        protected set { nextIconImage = value;}
+    }
+
     [SerializeField]
     private Animation nextIconAnimation;
-    public Animation NextIconAnimation { get { return nextIconAnimation; } }
+    public Animation NextIconAnimation
+    {
+        get { return nextIconAnimation; }
+        protected set { nextIconAnimation = value; }
+    }
+
     [SerializeField]
     private Image nameTextWindowImage;
-    public Image NameTextWindowImage { get { return nameTextWindowImage; } }
+    public Image NameTextWindowImage
+    {
+        get { return nameTextWindowImage; }
+        protected set { nameTextWindowImage = value; }
+    }
+
     [SerializeField]
     private TMPro.TextMeshProUGUI nameText;
-    public TMPro.TextMeshProUGUI NameText { get { return nameText; } }
+    public TMPro.TextMeshProUGUI NameText
+    {
+        get { return nameText; }
+        protected set { nameText = value; }
+    }
 
     [SerializeField]
     private Canvas uiCanvas;
-    public Canvas UICanvas { get { return uiCanvas; } }
+    public Canvas UICanvas
+    {
+        get { return uiCanvas; }
+        protected set { uiCanvas = value; }
+    }
+
     [SerializeField]
     private Button settingButton;
-    public Button SettingButton { get { return settingButton; } }
+    public Button SettingButton
+    {
+        get { return settingButton; }
+        protected set { settingButton = value; }
+    }
+
     [SerializeField]
     private Image settingButtonImage;
-    public Image SettingButtonImage { get { return settingButtonImage; } }
+    public Image SettingButtonImage
+    {
+        get { return settingButtonImage; }
+        protected set { settingButtonImage = value; }
+    }
     [SerializeField]
     private GameObject touchScreenObject;
-    public GameObject TouchScreenObject { get { return touchScreenObject; } }
+    public GameObject TouchScreenObject
+    {
+        get { return touchScreenObject; }
+        protected set { touchScreenObject = value; }
+    }
 }

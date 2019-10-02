@@ -45,7 +45,17 @@ public class VisualNovelSystem : MonoBehaviour
     {
         get { return Time.time > timeElapsed + timeUntilDisplay; }
     }
-    
+
+    bool sw;
+    public void Push()
+    {
+        sw = true;
+    }
+    public void noPush()
+    {
+        sw = false;
+    }
+
     void Start()
     {
         VisualNovelInfo novelData = Resources.Load("ScriptableObject/VisualNovelInfo") as VisualNovelInfo;
@@ -54,21 +64,30 @@ public class VisualNovelSystem : MonoBehaviour
         SetNextLine();
     }
 
-    void Update()
+   public void OnClick()
     {
-
+        Debug.Log("test");
+    }
+    public void Update()
+    {
+        if (sw)
+        {
+            Debug.Log("Push");
+        }
 
         if (IsCompleteDisplayText)
         {
-            if (currentLine < scenario_.Length && Input.GetMouseButtonDown(0))
+            if (currentLine < scenario_.Length && sw==true)
             {
                 SetNextLine();
+                sw = false;
             }
+
         }
         else
         {
             // 完了してないなら文字をすべて表示する
-            if (Input.GetMouseButtonDown(0))
+            if (sw==true)
             {
                 timeUntilDisplay = 0;
             }

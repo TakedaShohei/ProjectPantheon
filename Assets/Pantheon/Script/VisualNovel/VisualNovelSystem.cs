@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class VisualNovelSystem : MonoBehaviour
 {
-    
+    public string[] scenario_ = null;
     public string[] scenarios; // シナリオを格納する
     [SerializeField]
     private VisualNovelInfo charaData_;
@@ -47,16 +47,18 @@ public class VisualNovelSystem : MonoBehaviour
     
     void Start()
     {
+        VisualNovelInfo novelData = Resources.Load("ScriptableObject/VisualNovelInfo") as VisualNovelInfo;
+        scenario_ = novelData.VNInfoList[0].Dialogue;
         NameUpdate();
         SetNextLine();
     }
 
     void Update()
     {
-
+       
         if (IsCompleteDisplayText)
         {
-            if (currentLine < scenarios.Length && Input.GetMouseButtonDown(0))
+            if (currentLine < scenario_.Length && Input.GetMouseButtonDown(0))
             {
                 SetNextLine();
             }
@@ -91,7 +93,7 @@ public class VisualNovelSystem : MonoBehaviour
 
     void SetNextLine()
     {
-        currentText = scenarios[currentLine];
+        currentText = scenario_[currentLine];
         currentLine++;
 
         // 想定表示時間と現在の時刻をキャッシュ

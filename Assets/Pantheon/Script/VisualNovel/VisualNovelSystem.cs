@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class VisualNovelSystem : MonoBehaviour
 {
+    ShowCharacterImage ShowCharacterImage;
     public string[] scenario_ = null;
-    public string[] scenarios; // シナリオを格納する
+    
     [SerializeField]
     private VisualNovelInfo charaData_;
     public VisualNovelInfo CharaData
@@ -55,7 +56,8 @@ public class VisualNovelSystem : MonoBehaviour
 
     void Update()
     {
-       
+
+
         if (IsCompleteDisplayText)
         {
             if (currentLine < scenario_.Length && Input.GetMouseButtonDown(0))

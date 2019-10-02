@@ -70,10 +70,7 @@ public class VisualNovelSystem : MonoBehaviour
     }
     public void Update()
     {
-        if (sw)
-        {
-            Debug.Log("Push");
-        }
+       
 
         if (IsCompleteDisplayText)
         {
@@ -90,6 +87,9 @@ public class VisualNovelSystem : MonoBehaviour
             if (sw==true)
             {
                 timeUntilDisplay = 0;
+                sw = false;
+                    Debug.Log("Push");
+                
             }
         }
 
@@ -103,7 +103,7 @@ public class VisualNovelSystem : MonoBehaviour
             lastUpdateCharacter = displayCharacterCount;
         }
 
-        if (currentName < name.Length && Input.GetMouseButtonDown(0))
+        if (currentName < name.Length )
         {
             NameUpdate();
         }

@@ -60,6 +60,7 @@ public class VisualNovelSystem : MonoBehaviour
    public void OnClick()
     {
         Debug.Log("test");
+        SetNextScenario();
     }
     public void Update()
     {
@@ -102,6 +103,18 @@ public class VisualNovelSystem : MonoBehaviour
         }
 
 
+    }
+
+    void SetNextScenario()
+    {
+        VisualNovelInfo novelData = Resources.Load("ScriptableObject/VisualNovelInfo") as VisualNovelInfo;
+        scenario_number_++;
+        scenario_ = novelData.VNInfoList[scenario_number_].Dialogue;
+
+        sw = false;
+
+        NameUpdate();
+        SetNextLine();
     }
 
 

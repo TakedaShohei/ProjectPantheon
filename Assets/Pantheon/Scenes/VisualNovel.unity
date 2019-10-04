@@ -1525,7 +1525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenario_: []
-  charaData_: {fileID: 11400000, guid: 32f91bac11203a04cbbfcfe1a8e1b0f8, type: 2}
+  scenario_number_: 1
+  name_number_: 1
   uiText: {fileID: 32262410}
   uiName: {fileID: 520187119}
   intervalForCharacterDisplay: 0.05

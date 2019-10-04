@@ -14,6 +14,9 @@ public class CharacterImageInfo : ScriptableObject
     [System.Serializable]
     public class CharacterModel
     {
+        [SerializeField]
+        public string comment;
+
         [SerializeField] private int id_;
         public int Id
         {

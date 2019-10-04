@@ -6,19 +6,10 @@ using UnityEngine.UI;
 
 public class VisualNovelSystem : MonoBehaviour
 {
-    ShowCharacterImage ShowCharacterImage;
+    //ScriptableObjectの制御。
     public string[] scenario_ = null;
-    
-    [SerializeField]
-    private VisualNovelInfo charaData_;
-    public VisualNovelInfo CharaData
-    {
-        get { return charaData_; }
-        protected set { charaData_ = value; }
-    }
-    
-    
-
+    public int scenario_number_;
+    public int name_number_;
     [SerializeField]
     TMP_Text uiText; // uiTextへの参照を保つ
 
@@ -59,7 +50,8 @@ public class VisualNovelSystem : MonoBehaviour
     void Start()
     {
         VisualNovelInfo novelData = Resources.Load("ScriptableObject/VisualNovelInfo") as VisualNovelInfo;
-        scenario_ = novelData.VNInfoList[0].Dialogue;
+        
+        scenario_ = novelData.VNInfoList[scenario_number_].Dialogue;
         NameUpdate();
         SetNextLine();
     }
@@ -128,8 +120,9 @@ public class VisualNovelSystem : MonoBehaviour
     void NameUpdate()
     {
         CharacterImageInfo charaData_ = Resources.Load("ScriptableObject/CharaImageInfo") as CharacterImageInfo;
-
-        string name_ = charaData_.CharacterList[0].Name;
+        VisualNovelInfo novelData = Resources.Load("ScriptableObject/VisualNovelInfo") as VisualNovelInfo;
+        name_number_ = novelData.VNInfoList[0].Name_Number;
+        string name_ = charaData_.CharacterList[name_number_].Name;
         //名前を格納する。
         // 現在の行のテキストをuiTextに流し込み、現在の行番号を一つ追加する
         uiName.text = name_;

@@ -9,17 +9,28 @@ using System.Collections.Generic;
 
 public class VisualNovelInfo : ScriptableObject
 {
-    public List<VisualNovelModel> VNInfoList = new List<VisualNovelModel>();
+    [SerializeField]
+    public string comment;
+ 
 
+    public List<VisualNovelModel> VNInfoList = new List<VisualNovelModel>();
+   
     [System.Serializable]
     public class VisualNovelModel
     {
         [SerializeField]
-        [Tooltip("ノベルデータの説明等(自由欄)")]
-        public string comment;
-
+        private int name_number;
+        public int Name_Number
+        {
+            get { return name_number; }
+            protected set { name_number = value; }
+        }
 
       
+
+    
+
+
 
         [SerializeField] private string[] dialogue_;
         public string[] Dialogue

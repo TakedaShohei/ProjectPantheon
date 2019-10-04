@@ -6,28 +6,16 @@ using UnityEngine.SceneManagement;
 public class StageManager : MonoBehaviour
 {
 
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+  
 
     public void LoadingMypage()
     {
         SceneManager.LoadScene("Mypage");
-
-
     }
 
-    public void LoadingSelectStage()
+    public void LoadingMainStory()
     {
-        SceneManager.LoadScene("SelectStage");
+        SceneManager.LoadScene("MainStory");
     }
     public void LoadingStage2Scene()
     {
@@ -43,7 +31,10 @@ public class StageManager : MonoBehaviour
         SceneManager.LoadScene("clear");
 
     }
-
+    public void LoadingBaseSelect()
+    {
+        SceneManager.LoadScene("BaseSelect");
+    }
 
 
 }

@@ -10,6 +10,7 @@ public class VisualNovelSystem : MonoBehaviour
     public string[] scenario_ = null;
     public int scenario_number_;
     public int name_number_;
+   
     [SerializeField]
     TMP_Text uiText; // uiTextへの参照を保つ
 

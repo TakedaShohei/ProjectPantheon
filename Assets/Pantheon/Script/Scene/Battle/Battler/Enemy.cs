@@ -14,12 +14,19 @@ public class Enemy : BattlerBase
     {
         //hp_ = model.hp;
         //ai_ = ai_list[model.ai_id];
-        
+        //ai_ = GetAI(model.ai_id);
+
+
     }
-    
-    Dictionary<int,AIBase> ai_list = new Dictionary<int, AIBase>()
+
+    AIBase GetAI(int ai_id)
     {
-        { 1, new AISlime() }
-    };
+        if (ai_id == 1) { return new AISlime(); }
+        if (ai_id == 2) { return new ADragon(); }
+
+        return null;
+    }
+
+    
 
 }

@@ -4,27 +4,36 @@ using System.Collections.Generic;
 
 public class AIBase 
 {
-    public virtual List<AIData> GetAIDataList() { return null; }
+    public virtual List<AIThinkList> GetAIThinkList() { return null; }
 
-    public AIData SelectAI(AiSetting setting)
+    public List<ActionBase> SelectAI(AiSetting setting)
     {
-        List<AIData> ai_data_list = GetAIDataList();
-        for(var i = 0; i < ai_data_list.Count; i++)
+        List<AIThinkList> ai_think_list = GetAIThinkList();
+        for(var i = 0; i < ai_think_list.Count; i++)
         {
-            AIData data = ai_data_list[i];
+            AIThinkList data = ai_think_list[i];
             bool mach = MachConditioon(data, setting);
             if (mach)
             {
-                return data;
+                return data.ActionList;
             }
         }
         return null;
     }
 
-    public bool MachConditioon(AIData data, AiSetting setting)
+    public bool MachConditioon(AIThinkList data, AiSetting setting)
     {
         //settingの様々な値と、dataの条件がマッチするかを書いていく.
-        return true;
+        List<AIConditionBase> condition_list = data.ConditionList;
+        for(var i=0;i< condition_list.Count; i++)
+        {
+            if (condition_list[i].CheckCOondition(setting) == true)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
     
 }

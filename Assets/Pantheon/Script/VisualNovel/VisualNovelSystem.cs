@@ -10,6 +10,8 @@ public class VisualNovelSystem : MonoBehaviour
     public string[] scenario_ = null;
     public int scenario_number_;
     public int name_number_;
+
+    public string novel_info_ = null;//visualnovelinfoのデータを入力する場所
    
     [SerializeField]
     TMP_Text uiText; // uiTextへの参照を保つ
@@ -33,6 +35,9 @@ public class VisualNovelSystem : MonoBehaviour
     private float timeElapsed = 1;          // 文字列の表示を開始した時間
     private int lastUpdateCharacter = -1;       // 表示中の文字数
                                                 // 文字の表示が完了しているかどうか
+    VisualNovelInfo novelData = null;
+
+
     public bool IsCompleteDisplayText
     {
         get { return Time.time > timeElapsed + timeUntilDisplay; }
@@ -48,13 +53,18 @@ public class VisualNovelSystem : MonoBehaviour
         sw = false;
     }
 
-    void Start()
+    public void SetUp()
     {
-        VisualNovelInfo novelData = Resources.Load("ScriptableObject/VisualNovelInfo") as VisualNovelInfo;
-        
+        novelData = Resources.Load("ScriptableObject/"+novel_info_) as VisualNovelInfo;
         scenario_ = novelData.VNInfoList[scenario_number_].Dialogue;
         NameUpdate();
         SetNextLine();
+    }
+
+    void Start()
+    {
+
+        SetUp();
     }
 
    public void OnClick()
@@ -68,11 +78,22 @@ public class VisualNovelSystem : MonoBehaviour
 
         if (IsCompleteDisplayText)
         {
-            if (currentLine < scenario_.Length && sw==true)
+            if(sw == true)
             {
-                SetNextLine();
                 sw = false;
+                if (currentLine < scenario_.Length)
+                {
+                    SetNextLine();
+                    
+                } else if (scenario_number_ + 1 < novelData.VNInfoList.Count)
+                {
+                    SetNextScenario();
+                } else
+                {
+                    Debug.Log("おしまい");
+                }
             }
+            
 
         }
         else
@@ -107,11 +128,12 @@ public class VisualNovelSystem : MonoBehaviour
 
     void SetNextScenario()
     {
-        VisualNovelInfo novelData = Resources.Load("ScriptableObject/VisualNovelInfo") as VisualNovelInfo;
+        
         scenario_number_++;
         scenario_ = novelData.VNInfoList[scenario_number_].Dialogue;
 
-        sw = false;
+        currentLine = 0;
+
 
         NameUpdate();
         SetNextLine();
@@ -134,8 +156,7 @@ public class VisualNovelSystem : MonoBehaviour
     void NameUpdate()
     {
         CharacterImageInfo charaData_ = Resources.Load("ScriptableObject/CharaImageInfo") as CharacterImageInfo;
-        VisualNovelInfo novelData = Resources.Load("ScriptableObject/VisualNovelInfo") as VisualNovelInfo;
-        name_number_ = novelData.VNInfoList[0].Name_Number;
+        name_number_ = novelData.VNInfoList[scenario_number_].Name_Number;
         string name_ = charaData_.CharacterList[name_number_].Name;
         //名前を格納する。
         // 現在の行のテキストをuiTextに流し込み、現在の行番号を一つ追加する

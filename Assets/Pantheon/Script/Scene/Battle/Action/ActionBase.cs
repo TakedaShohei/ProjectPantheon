@@ -38,6 +38,16 @@ public class ActionBase
         //　死亡したら
     }
 
+    public void Damge(BattlerBase entiry, BattlerBase target, float attack_rate)
+    {
+        int damge = (int)(entiry.attack_ * attack_rate) - target.defence_;
+        target.hp_ -= damge;
+        //target.hpber.update();
+        //tarege.ShowDamge(damge);
+        // 演出
+        //　死亡したら
+    }
+
     public virtual void Execute( BattleMain battle_main )
     {
         

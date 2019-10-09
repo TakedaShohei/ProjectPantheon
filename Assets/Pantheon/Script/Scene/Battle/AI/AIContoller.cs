@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AIContoller : MonoBehaviour
 {
     BattleMain battle_main_ = null;
+
 
     public void Setup(BattleMain battle_main)
     {
@@ -19,24 +21,29 @@ public class AIContoller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Enemy enemy = GetEnemy();
-        if(enemy.State == Enemy.ActionState.Ready)
+        List<Enemy> enemy_list = GetEnemyList();
+        foreach(Enemy enemy in enemy_list)
         {
-            AIBase ai = enemy.AI;
-            AiSetting ai_setting = new AiSetting();
-            
-            AIData exec_ai_data = ai.SelectAI(ai_setting);
-            battle_main_.AddAction(exec_ai_data.Action);
+            if (enemy.State == Enemy.ActionState.Ready)
+            {
+                AIBase ai = enemy.AI;
+                AiSetting ai_setting = new AiSetting();
 
+                List<ActionBase> exec_action_list = ai.SelectAI(ai_setting);
+                foreach (ActionBase exec_action in exec_action_list)
+                {
+                    battle_main_.AddAction(exec_action);
+                }
+
+            }
         }
-        
     }
 
 
 
-    public Enemy GetEnemy()
+    public List<Enemy> GetEnemyList()
     {
-        return null;
+        return battle_main_.EnemyList;
     }
 
 }

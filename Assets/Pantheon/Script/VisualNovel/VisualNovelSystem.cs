@@ -18,8 +18,9 @@ public class VisualNovelSystem : MonoBehaviour
 
     [SerializeField]
     TMP_Text uiName; // uiTextへの参照を保つ
-    [SerializeField]
-    GameObject[] chara_;
+   
+   
+    public Image chara_image_;
 
     /// <summary>
     /// 時間をかけた文章表示
@@ -38,7 +39,7 @@ public class VisualNovelSystem : MonoBehaviour
                                                 // 文字の表示が完了しているかどうか
     VisualNovelInfo novelData = null;
 
-    ShowCharacterImage imageData = null;
+    CharacterImageInfo charaData = null;
 
     public bool IsCompleteDisplayText
     {
@@ -61,6 +62,7 @@ public class VisualNovelSystem : MonoBehaviour
         scenario_ = novelData.VNInfoList[scenario_number_].Dialogue;
         NameUpdate();
         SetNextLine();
+        CharaUpdate(chara_number_);
     }
 
     void Start()
@@ -123,12 +125,13 @@ public class VisualNovelSystem : MonoBehaviour
         if (currentName < name.Length )
         {
             NameUpdate();
+            CharaUpdate(chara_number_);
         }
 
 
     }
 
-    void SetNextScenario()
+    public void SetNextScenario()
     {
         
         scenario_number_++;
@@ -138,7 +141,7 @@ public class VisualNovelSystem : MonoBehaviour
 
 
         NameUpdate();
-        
+        CharaUpdate(chara_number_);
         SetNextLine();
     }
 
@@ -158,12 +161,11 @@ public class VisualNovelSystem : MonoBehaviour
 
     void NameUpdate()
     {
-        CharacterImageInfo charaData_ = Resources.Load("ScriptableObject/CharaImageInfo") as CharacterImageInfo;
+        charaData = Resources.Load("ScriptableObject/CharaImageInfo") as CharacterImageInfo;
         name_number_ = novelData.VNInfoList[scenario_number_].Name_Number;
-        string name_ = charaData_.CharacterList[name_number_].Name;
+        string name_ = charaData.CharacterList[name_number_].Name;
 
-        chara_number_ = novelData.VNInfoList[scenario_number_].Chara_Number;
-        int chara_ = charaData_.CharacterList[chara_number_].Id;
+        
         
         //名前を格納する。
         // 現在の行のテキストをuiTextに流し込み、現在の行番号を一つ追加する
@@ -171,7 +173,18 @@ public class VisualNovelSystem : MonoBehaviour
     }
 
    
+  void CharaUpdate(int chara_number_)
+    {
+        chara_number_ = novelData.VNInfoList[scenario_number_].Chara_Number;
 
+        //chara_image_ = novelData.VNInfoList[scenario_number_].Chara_Image;
+        Image background_image_ = charaData.CharacterList[chara_number_].Model;
+        Sprite chara_ = charaData.CharacterList[chara_number_].Show_Character;
+
+        background_image_ = chara_image_.GetComponent<Image>();
+        background_image_.sprite = chara_;
+
+    }
        
 
 

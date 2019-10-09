@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using UnityEngine.UI;
 [CreateAssetMenu(
    fileName = "VisualNovelInfo",
    menuName = "Pantheon/VisualNovelInfo",
@@ -33,6 +34,14 @@ public class VisualNovelInfo : ScriptableObject
             protected set { chara_number = value; }
         }
 
+      /*  [SerializeField]
+        private Image chara_image_;
+        public Image Chara_Image
+        {
+            get { return chara_image_; }
+            protected set { chara_image_ = value; }
+        }
+        */
 
         [SerializeField] private string[] dialogue_;
         public string[] Dialogue

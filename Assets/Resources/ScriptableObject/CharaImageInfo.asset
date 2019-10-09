@@ -12,12 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07afd990ce4e5ce45b2d06aec343c7ad, type: 3}
   m_Name: CharaImageInfo
   m_EditorClassIdentifier: 
+  comment: 
   CharacterList:
-  - id_: 0
+  - comment: Unity-chan
+    id_: 0
+    color_: 255
     name_: Unity-chan
     model_: {fileID: 0}
     character_: {fileID: 21300000, guid: f7a6a94db4508dd489ad2f1d1f0bc42b, type: 3}
-  - id_: 0
+  - comment: Misaki-chan
+    id_: 1
+    color_: 255
     name_: Misaki-chan
     model_: {fileID: 0}
     character_: {fileID: 21300000, guid: 1282009f279d8e448a7633efca852cb6, type: 3}
+  - comment: Unity-chan-Angry
+    id_: 2
+    color_: 255
+    name_: Unity-chan
+    model_: {fileID: 0}
+    character_: {fileID: 21300000, guid: fbba4f2f1bd21d44f80e9fe425af2734, type: 3}
+  - comment: nothing
+    id_: 3
+    color_: 0
+    name_: 
+    model_: {fileID: 0}
+    character_: {fileID: 21300000, guid: 7ab64480acc2d534090d2a3e650a9178, type: 3}

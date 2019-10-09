@@ -10,6 +10,8 @@ using UnityEngine.UI;
 
 public class CharacterImageInfo : ScriptableObject
 {
+    [SerializeField]
+    public string comment;
     public List<CharacterModel> CharacterList = new List<CharacterModel>();
     [System.Serializable]
     public class CharacterModel
@@ -23,6 +25,13 @@ public class CharacterImageInfo : ScriptableObject
             get { return id_; }
             protected set { id_ = value; }
         }
+
+       /* [SerializeField] private byte color_=255;
+        public byte Color
+        {
+            get { return color_; }
+            protected set { color_ = value; }
+        }*/
         [SerializeField] private string name_;
         public string Name
         {

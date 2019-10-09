@@ -25,11 +25,13 @@ public class VisualNovelInfo : ScriptableObject
             get { return name_number; }
             protected set { name_number = value; }
         }
-
-      
-
-    
-
+        [SerializeField]
+        private int chara_number;
+        public int Chara_Number
+        {
+            get { return chara_number; }
+            protected set { chara_number = value; }
+        }
 
 
         [SerializeField] private string[] dialogue_;

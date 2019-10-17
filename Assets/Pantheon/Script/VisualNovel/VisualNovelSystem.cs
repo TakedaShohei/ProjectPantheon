@@ -20,7 +20,9 @@ public class VisualNovelSystem : MonoBehaviour
     TMP_Text uiName; // uiTextへの参照を保つ
    
    
-    public Image chara_image_;
+   
+    private string chara_image_2;
+
 
     /// <summary>
     /// 時間をかけた文章表示
@@ -40,6 +42,8 @@ public class VisualNovelSystem : MonoBehaviour
     VisualNovelInfo novelData = null;
 
     CharacterImageInfo charaData = null;
+    
+    
 
     public bool IsCompleteDisplayText
     {
@@ -176,12 +180,12 @@ public class VisualNovelSystem : MonoBehaviour
   void CharaUpdate(int chara_number_)
     {
         chara_number_ = novelData.VNInfoList[scenario_number_].Chara_Number;
-
-        //chara_image_ = novelData.VNInfoList[scenario_number_].Chara_Image;
+        chara_image_2 = novelData.VNInfoList[scenario_number_].Chara_Image;
+        
         Image background_image_ = charaData.CharacterList[chara_number_].Model;
         Sprite chara_ = charaData.CharacterList[chara_number_].Show_Character;
 
-        background_image_ = chara_image_.GetComponent<Image>();
+        background_image_ = GameObject.Find(chara_image_2).GetComponent<Image>();
         background_image_.sprite = chara_;
 
     }

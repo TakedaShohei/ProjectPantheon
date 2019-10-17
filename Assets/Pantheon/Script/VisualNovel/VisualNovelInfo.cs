@@ -34,16 +34,17 @@ public class VisualNovelInfo : ScriptableObject
             protected set { chara_number = value; }
         }
 
-      /*  [SerializeField]
-        private Image chara_image_;
-        public Image Chara_Image
+        [SerializeField]
+        private string chara_image_;
+        public string Chara_Image
         {
             get { return chara_image_; }
             protected set { chara_image_ = value; }
         }
-        */
+       
 
-        [SerializeField] private string[] dialogue_;
+        [SerializeField]
+        private string[] dialogue_;
         public string[] Dialogue
         {
             get { return dialogue_; }

@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Pantheon/Scenes/Stage/SelectStage4.unity
     guid: cb5c09b3068fcc1449cd80a4ca01b73d
+  - enabled: 1
+    path: Assets/Pantheon/Scenes/Stage/Recollection.unity
+    guid: 0efd414ae7a9ca24a91451380b1c7693
+  - enabled: 1
+    path: Assets/Pantheon/Scenes/Stage/Option.unity
+    guid: d35337bce881f50478a78946dc70a807
   m_configObjects: {}

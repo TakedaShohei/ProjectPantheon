@@ -5,47 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class InstancePanel : MonoBehaviour
 {
-    bool check = true;//条件分岐用のbool変数
-    public GameObject gameObject; //オリジナルのオブジェクト
+   
+    public GameObject location_;
+    private GameObject object_;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+         
+
+}
 
     // Update is called once per frame
     void Update()
     {
         
     }
-   public void OnInstance_Panel()
+  
+
+    public void CreateAndDestroy(GameObject prefab)
     {
-        gameObject.SetActive(false);
-
-    }
-
-   public void Destroy_Panel()
-    {
-        Destroy(gameObject);    
-    }
-
-   
-   
-
-    public void Onclick()
-    {
-        Debug.Log("1");
-        if (!check)
+        // 生成
+        if (object_ == null)
         {
-            gameObject.SetActive(false);
-            Debug.Log("2");
-            check = true;
+            object_ =(GameObject) Instantiate(prefab,new Vector3(200.0f,195.5f,0.0f),Quaternion.identity);
+            object_.transform.parent = location_.transform;
         }
-        else if (check)
+
+        // 破壊
+        else
         {
-            gameObject.SetActive(true);
-            Debug.Log("3");
-            check = false;
+            Destroy(object_);
         }
     }
 }

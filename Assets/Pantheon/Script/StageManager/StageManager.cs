@@ -12,6 +12,10 @@ public class StageManager : MonoBehaviour
     {
         SceneManager.LoadScene("Mypage");
     }
+    public void LoadingRecollection()
+    {
+        SceneManager.LoadScene("Recollection");
+    }
 
     public void LoadingMainStory()
     {
@@ -38,6 +42,15 @@ public class StageManager : MonoBehaviour
     public void LoadingSelectStage4()
     {
         SceneManager.LoadScene("SelectStage4");
+    }
+
+    public void LoadingBattle()
+    {
+        SceneManager.LoadScene("Battle");
+    }
+    public void LoadingOption()
+    {
+        SceneManager.LoadScene("Option");
     }
 
 }

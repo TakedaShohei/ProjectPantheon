@@ -34,8 +34,8 @@ public class PlayerModel
         protected set { level_ = value;}
     }
     public int id_;
-    [SerializeField] private GameObject model_prefab_;
-    public GameObject ModelPrefab
+    [SerializeField] private string model_prefab_;
+    public string ModelPrefab
     {
         get {return model_prefab_;}
         protected set {model_prefab_ = value;}
@@ -57,6 +57,12 @@ public class PlayerModel
     {
         get {return defense_;}
         protected set { defense_ = value; }
+    }
+    [SerializeField] private GameObject effect_;
+    public GameObject Effect
+    {
+        get { return effect_; }
+        protected set { effect_ = value; }
     }
     [SerializeField] private List<SkillInfo> skill_list_;
 

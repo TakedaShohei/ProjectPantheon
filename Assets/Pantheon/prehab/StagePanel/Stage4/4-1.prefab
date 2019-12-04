@@ -779,7 +779,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &8427876547673110052
+--- !u!114 &1186332197689493654
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -788,9 +788,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7988561892487760554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 654f563b57f1fd04aac0f213a10855a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 106ec25bd081b7841bdb9a62fe18621f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text_: {fileID: 7054185628308876156}
 --- !u!1001 &7054185627548155434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -927,11 +928,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8427876547673110052}
+      objectReference: {fileID: 1186332197689493654}
     - target: {fileID: 1096787876929664130, guid: d7dd54e3d0fd11e44824c74357822bd0,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadingBattle
+      value: OnClick
       objectReference: {fileID: 0}
     - target: {fileID: 1096787876929664130, guid: d7dd54e3d0fd11e44824c74357822bd0,
         type: 3}

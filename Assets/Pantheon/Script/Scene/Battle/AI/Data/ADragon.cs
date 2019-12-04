@@ -20,7 +20,7 @@ public class ADragon : AIBase
             // 強攻撃
             new List<ActionBase>
             {
-                new StrongAttackAction()
+                
             }
             ),
         // 第二条件

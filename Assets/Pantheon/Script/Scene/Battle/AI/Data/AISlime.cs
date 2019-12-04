@@ -20,7 +20,7 @@ public class AISlime : AIBase
             // 強攻撃
             new List<ActionBase>
             {
-                new StrongAttackAction()
+                
             }
             ),
         // 第二条件

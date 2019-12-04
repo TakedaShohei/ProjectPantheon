@@ -44,4 +44,11 @@ public class StageModel
         protected set { battle_info_ = value; }
     }
 
+    [SerializeField] private VisualNovelInfo novel_info_;
+    public VisualNovelInfo NovelInfo
+    {
+        get { return novel_info_; }
+        protected set { novel_info_ = value; }
+    }
+
 }

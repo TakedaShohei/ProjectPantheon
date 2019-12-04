@@ -6,10 +6,12 @@ public class SelectStageButton : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI text_ = null;
     StageModel model_ = null;
+    int chapter_id_ = 0;
 
 
-    public void SetUp(StageModel model)
+    public void SetUp(int chapter_id, StageModel model)
     {
+        chapter_id_ = chapter_id;
         model_ = model;
         text_.text = model_.Name;
 
@@ -17,9 +19,8 @@ public class SelectStageButton : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log("Battle　" + model_.Id);
-        SceneManagerEx.LoadSceneWithArg("Battle", model_, LoadSceneMode.Single);
-
+        Debug.LogFormat("SelectStageButton.OnClick id:{0}", model_.Id);
+        SceneManagerEx.LoadSceneWithArg("VisualNovel", new object[] { model_ }, LoadSceneMode.Single);
     }
 
     // Use this for initialization

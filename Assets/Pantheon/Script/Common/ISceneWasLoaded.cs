@@ -3,5 +3,5 @@ using UnityEngine.EventSystems;
 
 public interface ISceneWasLoaded : IEventSystemHandler
 {
-    void OnSceneWasLoaded(object argument);
+    void OnSceneWasLoaded(object[] arguments);
 }

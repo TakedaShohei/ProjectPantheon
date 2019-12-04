@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MypageScene : MonoBehaviour, ISceneWasLoaded
 {
-    public void OnSceneWasLoaded(object argument)
+    public void OnSceneWasLoaded(object[] arguments)
     {
     }
     // Use this for initialization

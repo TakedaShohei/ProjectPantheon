@@ -10,7 +10,7 @@ public static class SceneManagerEx
 {
     static public void LoadSceneWithArg(
          string sceneName,
-         object argument,
+         object[] arguments,
          LoadSceneMode mode)
     {
         UnityAction<Scene, LoadSceneMode> sceneLoaded = default;
@@ -24,7 +24,7 @@ public static class SceneManagerEx
             removeHandler();
             foreach (var root in loadedScene.GetRootGameObjects())
             {
-                ExecuteEvents.Execute<ISceneWasLoaded>(root, null, (receiver, e) => receiver.OnSceneWasLoaded(argument));
+                ExecuteEvents.Execute<ISceneWasLoaded>(root, null, (receiver, e) => receiver.OnSceneWasLoaded(arguments));
             }
         };
 

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef96859cbe19b4647954ebaf1270e4a6, type: 3}
+  m_Name: StageInfo3
+  m_EditorClassIdentifier: 
+  StageInfoList:
+  - name_: "\u30B9\u30C6\u30FC\u30B83-1"
+    id_: 1
+    button_: {fileID: 0}
+    battle_info_: {fileID: 11400000, guid: 1f2db63fecfe02f47ae08b175b36196a, type: 2}
+  - name_: "\u30B9\u30C6\u30FC\u30B832"
+    id_: 2
+    button_: {fileID: 0}
+    battle_info_: {fileID: 11400000, guid: 1f2db63fecfe02f47ae08b175b36196a, type: 2}
+  - name_: "\u30B9\u30C6\u30FC\u30B83-3"
+    id_: 3
+    button_: {fileID: 0}
+    battle_info_: {fileID: 11400000, guid: 1f2db63fecfe02f47ae08b175b36196a, type: 2}

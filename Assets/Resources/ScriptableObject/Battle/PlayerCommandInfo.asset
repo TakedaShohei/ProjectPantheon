@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff447c3904443247a623faf9e44d59b, type: 3}
+  m_Name: PlayerCommandInfo
+  m_EditorClassIdentifier: 
+  player_hp_bar_: {fileID: 1102001025445251776, guid: e5bda536820702c4b9587081e030433d,
+    type: 3}
+  player_action_button_: {fileID: 7099421418040703299, guid: 9d19abc3b0cddc2408666d32b7c24c46,
+    type: 3}
+  player_command_ui_: {fileID: 7359126336417429972, guid: f4350ec144814604a9f79b9cda545d5c,
+    type: 3}

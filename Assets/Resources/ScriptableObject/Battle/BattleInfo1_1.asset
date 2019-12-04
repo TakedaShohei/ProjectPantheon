@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b08079c2f9f15e439a6bb154893fd7d, type: 3}
+  m_Name: BattleInfo1_1
+  m_EditorClassIdentifier: 
+  BattleInfoList:
+  - name_: Stage1-1
+    id_: 1
+    model_prefab_: {fileID: 0}
+    enemy_list:
+    - name_: "\u30B4\u30FC\u30B9\u30C8\u30BF\u30A4\u30AC\u30FC"
+      level_: 1
+      id_: 1
+      model_prefab_: Prefab/Enemy/GhostTiger
+      hp_: 100
+      power_: 10
+      defense_: 5
+      skill_list_: []
+      position_: 0
+      ai_id_: 1
+    background_prefab_: Background/FantasyWorld
+    attack_: {fileID: 7099421418040703299, guid: 9d19abc3b0cddc2408666d32b7c24c46,
+      type: 3}

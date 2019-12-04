@@ -34,13 +34,20 @@ public class BattleInfo : ScriptableObject
             get { return enemy_list; }
             protected set { enemy_list = value; }
         }
-        public string background_prefab_;
 
-        [SerializeField] private GameObject background_;
-        public GameObject Background_
+        [SerializeField]public string background_prefab_;
+        public string Background_prehab_
         {
-            get { return background_; }
-            protected set { background_ = value; }
+            get { return background_prefab_; }
+            protected set { background_prefab_ = value; }
+    
+        }
+
+        [SerializeField] private GameObject attack_;
+        public GameObject Attack_
+        {
+            get { return attack_; }
+            protected set { attack_ = value; }
         }
     }
 

@@ -10,13 +10,18 @@ public class Enemy : BattlerBase
         get { return ai_; }
     }
 
-    public Enemy(EnemyModel model)
+    EnemyModel enemy_model = null;
+
+    public void  Setup(EnemyModel model)
     {
-        //hp_ = model.hp;
-        //ai_ = ai_list[model.ai_id];
-        //ai_ = GetAI(model.ai_id);
+        hp_ = model.Hp;
+        attack_ = model.Power;
+        defence_ = model.Defense;
+        ai_ = GetAI(model.AiId);
+        enemy_model = model;
 
-
+        Setup();
+        
     }
 
     AIBase GetAI(int ai_id)
@@ -27,6 +32,18 @@ public class Enemy : BattlerBase
         return null;
     }
 
-    
+    public override void DieEffect()
+    {
+        Animator.SetTrigger("Dead");
+        
+        AttackImpact = OnDeathImact;
+        Debug.Log("RIP");
+    }
+    void OnDeathImact()
+    {
+        GameObjectBattler.SetActive(false);
+        Hpgauge.gameObject.SetActive(false);
+        
+    }
 
 }

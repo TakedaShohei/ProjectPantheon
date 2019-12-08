@@ -14,9 +14,9 @@ public class PlayerCommoandUI : MonoBehaviour
     public void AttackBtnClick()
     {
         AttackAction action = new AttackAction();
-        action.entity_ = battle_main_.UserList[0];
+        action.Entity = battle_main_.UserList[0];
     
-        action.target_ = battle_main_.EnemyList[0];
+        action.Target = battle_main_.EnemyList[0];
         battle_main_.AddAction(action);
     }
     void Setup()

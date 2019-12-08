@@ -21,6 +21,8 @@ public class  BattleMain
     List<ActionBase> action_list_ = new List<ActionBase>();
     List<User> user_list_ = null;
     List<Enemy> enemy_list_ = null;
+    List<BattlerBase> action_battler_list_ = new List<BattlerBase>();
+
 
 
     public List<User> UserList
@@ -38,7 +40,7 @@ public class  BattleMain
     {
         user_list_ = player_list;
         enemy_list_ = enemy_list;
-
+        ClearActionBattler();
     }
 
    
@@ -64,12 +66,47 @@ public class  BattleMain
 
         ActionBase action_top = action_list_[0];
 
-        Debug.LogFormat("action_top entity_:{0} target_:{1} ", action_top.entity_, action_top.target_);
+        Debug.LogFormat("action_top entity_:{0} target_:{1} ", action_top.Entity, action_top.Target);
 
         if (action_top.IsReady())
         {
             action_top.Execute(this);
+            action_top.CompleteAction = OnActionComplete;
+            
             action_list_.RemoveAt(0);
+        }
+    }
+
+    void OnActionComplete(ActionBase action)
+    {
+        ChangeActiveBattler(action.Entity);
+    }
+
+
+
+    void ChangeActiveBattler(BattlerBase exec_battler)
+    {
+        action_battler_list_.Remove(exec_battler);
+        if (action_battler_list_.Count <= 0)
+        {
+            ClearActionBattler();
+        }
+
+        action_battler_list_[0].State = BattlerBase.ActionState.Ready;
+
+
+    }
+
+    void ClearActionBattler()
+    {
+        foreach(BattlerBase enemy in enemy_list_)
+        {
+            action_battler_list_.Add(enemy);
+        }
+
+        foreach (BattlerBase user in user_list_)
+        {
+            action_battler_list_.Add(user);
         }
     }
 }

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &793152042610527554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7024117963886222433}
+  m_Layer: 0
+  m_Name: RightHandEffector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7024117963886222433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793152042610527554}
+  m_LocalRotation: {x: -0, y: -0.76604444, z: -0, w: 0.64278764}
+  m_LocalPosition: {x: -3.1506505, y: 0.61200285, z: -1.2557628}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+  m_Children: []
+  m_Father: {fileID: 5844234882647834358}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5844234882647852332
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1226,7 @@ Transform:
   m_Children:
   - {fileID: 5844234882647784418}
   - {fileID: 5844234882647742292}
+  - {fileID: 7024117963886222433}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 100, z: 0}
@@ -1233,7 +1264,9 @@ MonoBehaviour:
   hp_: 0
   attack_: 0
   defence_: 0
-  hp_gauge_: {fileID: 0}
+  move_transform_: {fileID: 0}
+  effect_transform_: {fileID: 0}
+  effect_particle_: {fileID: 0}
 --- !u!1 &5844234882648097154
 GameObject:
   m_ObjectHideFlags: 0

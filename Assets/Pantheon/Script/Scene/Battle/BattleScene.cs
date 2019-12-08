@@ -9,14 +9,16 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     [SerializeField] Transform player_effect_trans_ = null;
     [SerializeField] Transform player_ui_trans_ = null;
     [SerializeField] Transform enemy_ui_trans_ = null;
-    [SerializeField] Transform battle_ui_ = null; 
+    [SerializeField] Transform battle_ui_ = null;
     [SerializeField] BattleInfo model_ = null;
     [SerializeField] PlayerInfo player_info_ = null;
     [SerializeField] PlayerCommandInfo player_command_info_ = null;
     [SerializeField] PlayerCommoandUI player_commaond_ui_ = null;
     [SerializeField] Image Background_UI_ = null;
     [SerializeField] GameObject Background_Object_ = null;
-  
+    [SerializeField] ParticleSystem player_particle_ = null;
+    [SerializeField] AIContoller ai_controller = null;
+
 
     List<User> user_list_ = new List<User>();
     List<Enemy> enemy_list_ = new List<Enemy>();
@@ -58,7 +60,10 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
         // バトルメイン作成
         battle_main_ = new BattleMain();
         battle_main_.Setup(user_list_, enemy_list_);
-        
+
+        // AI
+        ai_controller.Setup(battle_main_);
+
         // UIの初期化
         player_commaond_ui_.Setup(battle_main_);
 
@@ -91,6 +96,9 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
             GameObject enemy_hpbar_prefab = player_command_info_.PlayerHpBar;
             HPGauge hp_gauge = Instantiate(enemy_hpbar_prefab,enemy_ui_trans_).GetComponent<HPGauge>();
             hp_gauge.SetUp(enemy.Hp);
+
+            enemy_effect_trans_ = enemy_go.transform.Find("RightHandEffector");
+
             //ここをリスト化した意味は？　リスト化したのはデータの更新のため？
             Enemy enemy_data = enemy_go.GetComponent<Enemy>();
             enemy_data.GameObjectBattler = enemy_go;
@@ -111,19 +119,34 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
         BattleInfo.BattleModel battle_model = model_.BattleInfoList[0];
         foreach (PlayerModel player in player_info_.PlayerInfoList)
         {
+            //Summon Playerprefab from PlayerInfo 
             GameObject player_prefab = (GameObject)Resources.Load(player.ModelPrefab);
             GameObject player_go = Instantiate(player_prefab, player_trans_);
-             
+            
 
-            //GameObject player_hpbar_prefab = (GameObject)Resources.Load("Prefab/Battle/UI/PlayerHpBar");
+            //Connect HpGauge and PlayerHp
             GameObject player_hpbar_prefab = player_command_info_.PlayerHpBar;
             HPGauge hp_gauge = Instantiate(player_hpbar_prefab, player_ui_trans_).GetComponent<HPGauge>();
             hp_gauge.SetUp(player.Hp);
 
+            //Instance effect_prehab
+            //Heavyknight(Clone)/Crusader_Ctrl_Reference/Crusader_Ctrl_RightHandThumbEffector
+
+            player_effect_trans_ = player_go.transform.Find("RightHandEffector");
+
+
+            GameObject effect_prehab = player.Effect;
+            GameObject effect_go = Instantiate(effect_prehab, player_effect_trans_);
+            player_particle_ = effect_go.GetComponent<ParticleSystem>();
+
+
+
+            //Connect user with PlayerInfo
             User user_data = player_go.GetComponent<User>();
             user_data.GameObjectBattler = player_go;
             user_data.Hpgauge = hp_gauge;
             user_data.MoveTransform = player_trans_;
+            user_data.EffectParticle = player_particle_;//New
             user_data.EffectTransform = player_effect_trans_;
             user_data.Setup(player);            
             user_list_.Add(user_data);
@@ -132,6 +155,7 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
         }
     }
 
+   
     void CreatePlayerCommand()
     {
         GameObject player_command_ui_ = player_command_info_.PlayerCommandUI;

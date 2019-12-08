@@ -5,11 +5,21 @@ using System.Collections.Generic;
 public class AIContoller : MonoBehaviour
 {
     BattleMain battle_main_ = null;
-
+    AiSetting ai_setting_ = null;
 
     public void Setup(BattleMain battle_main)
     {
         battle_main_ = battle_main;
+
+        ai_setting_ = new AiSetting(battle_main);
+
+        List<Enemy> enemy_list = GetEnemyList();
+        foreach (Enemy enemy in enemy_list)
+        {
+            enemy.State = Enemy.ActionState.Ready;
+        }
+
+
     }
 
     // Use this for initialization
@@ -26,14 +36,16 @@ public class AIContoller : MonoBehaviour
         {
             if (enemy.State == Enemy.ActionState.Ready)
             {
+                enemy.State = Enemy.ActionState.Action;
                 AIBase ai = enemy.AI;
-                AiSetting ai_setting = new AiSetting();
+                ai_setting_.Entity = enemy;
 
-                List<ActionBase> exec_action_list = ai.SelectAI(ai_setting);
-                foreach (ActionBase exec_action in exec_action_list)
+                List<AIActionBase> exec_action_list = ai.SelectAI(ai_setting_);
+                foreach (AIActionBase exec_action in exec_action_list)
                 {
-                    battle_main_.AddAction(exec_action);
+                    battle_main_.AddAction(exec_action.Action(ai_setting_));
                 }
+                
 
             }
         }

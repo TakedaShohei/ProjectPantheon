@@ -62,7 +62,7 @@ public class BattlerBase : MonoBehaviour
     public ActionState State
     {
         get { return state_; }
-        protected set { state_ = value; }
+        set { state_ = value; }
     }
 
     Animator animator_ = null;
@@ -84,6 +84,12 @@ public class BattlerBase : MonoBehaviour
         get { return effect_transform_; }
         set { effect_transform_ = value; }
     }
+    [SerializeField] ParticleSystem effect_particle_ = null;
+    public ParticleSystem EffectParticle
+    {
+        get { return effect_particle_; }
+        set { effect_particle_ = value; }
+    }
 
     Vector3 targe_pos_;
     Vector3 base_pos_;
@@ -93,7 +99,8 @@ public class BattlerBase : MonoBehaviour
         animator_ = game_object_.GetComponent<Animator>();
         base_pos_ = move_transform_.position;
         targe_pos_ = move_transform_.position;
-       // particle_effect_ = particle_effect_.GetComponent<ParticleSystem>();
+
+       
     }
 
     public void Die()

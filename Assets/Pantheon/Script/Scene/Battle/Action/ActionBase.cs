@@ -5,10 +5,28 @@ using System.Timers;
 
 public class ActionBase
 {
-    public BattlerBase entity_ = null;
-    public BattlerBase target_ = null;
+    BattlerBase entity_ = null;
+    BattlerBase target_ = null;
+    System.Action<ActionBase> cmoplete_action_ = null;
    
-   
+    public BattlerBase Entity
+    {
+        get { return entity_; }
+        set { entity_ = value; }
+    }
+
+    public BattlerBase Target
+    {
+        get { return target_; }
+        set { target_ = value; }
+    }
+
+    public System.Action<ActionBase> CompleteAction
+    {
+        get { return cmoplete_action_; }
+        set { cmoplete_action_ = value; }
+    }
+
 
     private int remaining_time;
     public int RemainingTime

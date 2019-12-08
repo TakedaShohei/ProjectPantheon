@@ -273,7 +273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &386497606
 Transform:
   m_ObjectHideFlags: 0
@@ -1063,6 +1063,7 @@ GameObject:
   - component: {fileID: 2121706199}
   - component: {fileID: 2121706198}
   - component: {fileID: 2121706201}
+  - component: {fileID: 2121706202}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1133,7 +1134,7 @@ MonoBehaviour:
   enemy_trans_: {fileID: 1601706953}
   enemy_effect_trans_: {fileID: 0}
   player_trans_: {fileID: 778984447}
-  playe_effect_trans_: {fileID: 0}
+  player_effect_trans_: {fileID: 0}
   player_ui_trans_: {fileID: 321834528}
   enemy_ui_trans_: {fileID: 1564256006}
   battle_ui_: {fileID: 726245725}
@@ -1143,7 +1144,20 @@ MonoBehaviour:
   player_commaond_ui_: {fileID: 1955530212}
   Background_UI_: {fileID: 1884291062}
   Background_Object_: {fileID: 1884291060}
-  action_button_trans_: {fileID: 0}
+  player_particle_: {fileID: 0}
+  ai_controller: {fileID: 2121706202}
+--- !u!114 &2121706202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121706197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4ff9ed674c5154d930cede6f9c9d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7359126337299086391
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1264,7 +1278,28 @@ PrefabInstance:
     - target: {fileID: 7359126336117405283, guid: f4350ec144814604a9f79b9cda545d5c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1
+      value: -26.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7359126336117405283, guid: f4350ec144814604a9f79b9cda545d5c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359126336117405283, guid: f4350ec144814604a9f79b9cda545d5c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -28.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2610641060044414357, guid: f4350ec144814604a9f79b9cda545d5c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359126336117405281, guid: f4350ec144814604a9f79b9cda545d5c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b92b63d2752b26c4780cd88d2bc33962,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4350ec144814604a9f79b9cda545d5c, type: 3}

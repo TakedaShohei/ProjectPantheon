@@ -20,4 +20,7 @@ MonoBehaviour:
     hp_: 100
     power_: 50
     defense_: 5
+    effect_: {fileID: 7936810986580610202, guid: 85f19931bbd546241bdb52b2df19a4d0,
+      type: 3}
+    effect_transform_: Crusader_Ctrl_Reference
     skill_list_: []

@@ -18,9 +18,9 @@ public class ADragon : AIBase
             },
             // 行動
             // 強攻撃
-            new List<ActionBase>
+            new List<AIActionBase>
             {
-                
+                new AIActionAttack(AIDefine.TargetType.Enemy)
             }
             ),
         // 第二条件
@@ -33,9 +33,9 @@ public class ADragon : AIBase
             },
             // 行動
             // 攻撃
-            new List<ActionBase>
+            new List<AIActionBase>
             {
-                new AttackAction()
+                new AIActionAttack(AIDefine.TargetType.Enemy)
             }
 
             )

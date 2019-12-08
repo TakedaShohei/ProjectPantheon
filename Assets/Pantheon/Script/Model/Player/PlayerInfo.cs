@@ -64,6 +64,12 @@ public class PlayerModel
         get { return effect_; }
         protected set { effect_ = value; }
     }
+    [SerializeField] private string effect_transform_;
+    public string EffectTransform
+    {
+        get { return effect_transform_; }
+        protected set { effect_transform_ = value; }
+    }
     [SerializeField] private List<SkillInfo> skill_list_;
 
  

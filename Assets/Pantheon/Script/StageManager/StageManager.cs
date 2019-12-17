@@ -6,16 +6,9 @@ using UnityEngine.SceneManagement;
 public class StageManager : MonoBehaviour
 {
 
-    StageMoveInfo stage_info_ = Resources.Load("ScriptableObject/Stage/StageMoveCommand.asset")as StageMoveInfo;
-    public int scene_id_;
     
 
-   public void LoadingStage()
-    {
-        string stage_name_ = stage_info_.PositionInfoList[scene_id_].Scene_Name_;
-        SceneManager.LoadScene(stage_name_);
-    }
-
+  
     public void LoadingMypage()
     {
         SceneManager.LoadScene("Mypage");

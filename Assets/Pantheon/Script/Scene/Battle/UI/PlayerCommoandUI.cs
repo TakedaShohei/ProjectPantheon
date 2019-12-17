@@ -21,7 +21,7 @@ public class PlayerCommoandUI : MonoBehaviour
     }
     void Setup()
     {
-      
+        
        
     }
    

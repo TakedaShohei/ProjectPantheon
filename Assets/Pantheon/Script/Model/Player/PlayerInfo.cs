@@ -70,6 +70,12 @@ public class PlayerModel
         get { return effect_transform_; }
         protected set { effect_transform_ = value; }
     }
+    [SerializeField] private string player_image_;
+    public string PlayerImage
+    {
+        get { return player_image_; }
+        protected set { player_image_ = value; }
+    }
     [SerializeField] private List<SkillInfo> skill_list_;
 
  

@@ -13,7 +13,8 @@ public class VisualNovelSystem : MonoBehaviour
     public int name_number_;
     public int chara_number_;
     public string novel_info_ = null;//visualnovelinfoのデータを入力する場所
-   
+    StageModel stage_model_ = null;
+
     [SerializeField]
     TMP_Text uiText; // uiTextへの参照を保つ
 
@@ -44,7 +45,7 @@ public class VisualNovelSystem : MonoBehaviour
 
     CharacterImageInfo charaData = null;
 
-    StageModel stage_model_ = null;
+  
     
     
 
@@ -65,9 +66,9 @@ public class VisualNovelSystem : MonoBehaviour
 
     public void SetUp(StageModel stage_model)
     {
-        stage_model_ = stage_model;
-        //novelData = Resources.Load("ScriptableObject/VisualNovel/VisualNovelInfo" + id) as VisualNovelInfo;
-        novelData = stage_model_.NovelInfo;
+        //stage_model_ = stage_model;
+        novelData = Resources.Load("ScriptableObject/VisualNovel/VisualNovelInfo1") as VisualNovelInfo;
+       // novelData = stage_model_.NovelInfo;
         scenario_ = novelData.VNInfoList[scenario_number_].Dialogue;
         NameUpdate();
         SetNextLine();

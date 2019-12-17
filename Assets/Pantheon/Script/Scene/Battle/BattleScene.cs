@@ -16,9 +16,13 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     [SerializeField] PlayerCommoandUI player_commaond_ui_ = null;
     [SerializeField] Image Background_UI_ = null;
     [SerializeField] GameObject Background_Object_ = null;
+    [SerializeField] Image chara_ui_ = null;
+    [SerializeField] GameObject chara_image_ = null;
     [SerializeField] ParticleSystem player_particle_ = null;
     [SerializeField] AIContoller ai_controller = null;
-
+    [SerializeField] GameObject chara_name_obj_ = null;
+    
+  
 
     List<User> user_list_ = new List<User>();
     List<Enemy> enemy_list_ = new List<Enemy>();
@@ -26,6 +30,7 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     BattleMain battle_main_ = null;
     
     private Sprite sprite;
+   
 
 
 
@@ -49,7 +54,12 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
         // 背景をロードして配置
         CreateBackground();
         //行動ボタンを作成。
-       // CreatePlayerCommand();
+        // CreatePlayerCommand();
+        // イメージ画像をロード
+        CreateCharaImage();
+
+        //キャラクター名前更新
+        CreateCharaName();
 
         // 敵キャラクターのロードして配置
         CreateEnemy();
@@ -82,6 +92,27 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
         Background_UI_ = Background_Object_.GetComponent<Image>();
         Background_UI_.sprite = sprite;
 
+    }
+    void CreateCharaImage()
+    {
+        foreach(PlayerModel player in player_info_.PlayerInfoList)
+        {
+            sprite = Resources.Load<Sprite>(player.PlayerImage);
+            chara_ui_ = chara_image_.GetComponent<Image>();
+            chara_ui_.sprite = sprite;
+        }
+       
+    }
+
+    void CreateCharaName()
+    {
+        foreach (PlayerModel player in player_info_.PlayerInfoList)
+        {
+            Text chara_name_text_ = chara_name_obj_.GetComponent<Text>();
+
+            chara_name_text_.text = player.Name;
+           
+        }
     }
 
     void CreateEnemy()
@@ -140,6 +171,8 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
             player_particle_ = effect_go.GetComponent<ParticleSystem>();
 
 
+            
+            
 
             //Connect user with PlayerInfo
             User user_data = player_go.GetComponent<User>();

@@ -30,11 +30,11 @@ public class StageModel
     }
     
 
-    [SerializeField] private GameObject button_;
-    public GameObject Button
+    [SerializeField] private Material material_;
+    public Material Material
     {
-        get { return button_; }
-        protected set { button_ = value; }
+        get { return material_; }
+        protected set { material_ = value; }
     }
 
     [SerializeField] private BattleInfo battle_info_;

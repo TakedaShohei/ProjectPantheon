@@ -12,6 +12,7 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     [SerializeField] Transform battle_ui_ = null;
     [SerializeField] BattleInfo model_ = null;
     [SerializeField] PlayerInfo player_info_ = null;
+    [SerializeField] StageInfo stage_info_ = null;
     [SerializeField] PlayerCommandInfo player_command_info_ = null;
     [SerializeField] PlayerCommoandUI player_commaond_ui_ = null;
     [SerializeField] Image Background_UI_ = null;
@@ -21,7 +22,7 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     [SerializeField] ParticleSystem player_particle_ = null;
     [SerializeField] AIContoller ai_controller = null;
     [SerializeField] GameObject chara_name_obj_ = null;
-    
+    [SerializeField] GameObject stage_plane_ = null;
   
 
     List<User> user_list_ = new List<User>();
@@ -48,13 +49,17 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
         model_ = Resources.Load("ScriptableObject/Battle/BattleInfo1_1" ) as BattleInfo;
         player_info_ = Resources.Load("ScriptableObject/Battle/PlayerInfo") as PlayerInfo;
         player_command_info_ = Resources.Load("ScriptableObject/Battle/PlayerCommandInfo") as PlayerCommandInfo;
-
+        stage_info_ = Resources.Load("ScriptableObject/Stage/StageInfo1") as StageInfo;
         
 
         // 背景をロードして配置
         CreateBackground();
         //行動ボタンを作成。
         // CreatePlayerCommand();
+
+        //ステージのmaterialを変更
+        CreatePlane();
+
         // イメージ画像をロード
         CreateCharaImage();
 
@@ -93,6 +98,15 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
         Background_UI_.sprite = sprite;
 
     }
+    void CreatePlane()
+    {
+        Material stage_material_ = stage_info_.StageInfoList[0].Material;
+
+      
+
+        stage_plane_.GetComponent<Renderer>().material = stage_material_;
+
+    }
     void CreateCharaImage()
     {
         foreach(PlayerModel player in player_info_.PlayerInfoList)
@@ -109,7 +123,7 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
         foreach (PlayerModel player in player_info_.PlayerInfoList)
         {
             Text chara_name_text_ = chara_name_obj_.GetComponent<Text>();
-
+          //  TextMesh chara_name_textmesh_ = chara_name_obj_.GetComponent<TextMesh>();
             chara_name_text_.text = player.Name;
            
         }
@@ -163,7 +177,7 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
             //Instance effect_prehab
             //Heavyknight(Clone)/Crusader_Ctrl_Reference/Crusader_Ctrl_RightHandThumbEffector
 
-            player_effect_trans_ = player_go.transform.Find("RightHandEffector");
+            player_effect_trans_ = player_go.transform.Find(player.EffectTransform);
 
 
             GameObject effect_prehab = player.Effect;

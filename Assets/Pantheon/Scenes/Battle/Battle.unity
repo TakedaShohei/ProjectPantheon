@@ -1237,6 +1237,7 @@ MonoBehaviour:
   battle_ui_: {fileID: 726245725}
   model_: {fileID: 0}
   player_info_: {fileID: 0}
+  stage_info_: {fileID: 0}
   player_command_info_: {fileID: 0}
   player_commaond_ui_: {fileID: 1955530212}
   Background_UI_: {fileID: 1884291062}
@@ -1246,7 +1247,7 @@ MonoBehaviour:
   player_particle_: {fileID: 0}
   ai_controller: {fileID: 2121706202}
   chara_name_obj_: {fileID: 1110943589}
-  chara_name_ui_: {fileID: 1110943591}
+  stage_plane_: {fileID: 1209808131}
 --- !u!114 &2121706202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1270,6 +1271,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCommandUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 8937729713118973816, guid: f4350ec144814604a9f79b9cda545d5c,
+        type: 3}
+      propertyPath: m_Name
+      value: CharaImage
       objectReference: {fileID: 0}
     - target: {fileID: 7359126336417429970, guid: f4350ec144814604a9f79b9cda545d5c,
         type: 3}
@@ -1402,10 +1408,5 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: b92b63d2752b26c4780cd88d2bc33962,
         type: 3}
-    - target: {fileID: 8937729713118973816, guid: f4350ec144814604a9f79b9cda545d5c,
-        type: 3}
-      propertyPath: m_Name
-      value: CharaImage
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4350ec144814604a9f79b9cda545d5c, type: 3}

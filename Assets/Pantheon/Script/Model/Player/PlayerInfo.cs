@@ -46,6 +46,12 @@ public class PlayerModel
         get {return hp_; }
         protected set {hp_ = value; }
     }
+    [SerializeField] private int energy_;
+    public int Energy
+    {
+        get { return energy_; }
+        protected set { energy_ = value; }
+    }
     [SerializeField] private int power_;
     public int Power
     {

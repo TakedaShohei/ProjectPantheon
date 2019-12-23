@@ -101,11 +101,8 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     void CreatePlane()
     {
         Material stage_material_ = stage_info_.StageInfoList[0].Material;
-
-      
-
+        
         stage_plane_.GetComponent<Renderer>().material = stage_material_;
-
     }
     void CreateCharaImage()
     {
@@ -177,14 +174,14 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
             //Instance effect_prehab
             //Heavyknight(Clone)/Crusader_Ctrl_Reference/Crusader_Ctrl_RightHandThumbEffector
 
-            player_effect_trans_ = player_go.transform.Find(player.EffectTransform);
+            //player_effect_trans_ = player_go.transform.Find(player.EffectTransform);
+            Transform  player_effect_trans = player_go.transform.Find("Crusader_Ctrl_Reference/Crusader_Ctrl_RightHandMiddleEffector");
+            player_effect_trans_ = GameObject.Find(player.EffectTransform).transform;
 
 
             GameObject effect_prehab = player.Effect;
             GameObject effect_go = Instantiate(effect_prehab, player_effect_trans_);
             player_particle_ = effect_go.GetComponent<ParticleSystem>();
-
-
             
             
 
@@ -219,6 +216,7 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     // Update is called once per frame
     void Update()
     {
+        if (battle_main_ == null) return;
         battle_main_.Update();
     }
 }

@@ -11,6 +11,9 @@ public class AttackAction : ActionBase
         
         Entity.Animator.SetTrigger("attack");
 
+        
+        
+
         Entity.AttackImpact2 += OnRunImpact;
         Entity.AttackImpact += OnAttackImppact;
         Entity.AttackBack += OnAttackBack;
@@ -32,6 +35,12 @@ public class AttackAction : ActionBase
         */
         //Entity.EffectParticle.Play();
         Damge(Entity, Target);
+
+        if (Entity.EffectParticle)
+        {
+            ParticleSystem particle = Entity.EffectParticle.GetComponent<ParticleSystem>();
+            if (particle) particle.Play();
+        }
 
         CompleteAction(this);
 

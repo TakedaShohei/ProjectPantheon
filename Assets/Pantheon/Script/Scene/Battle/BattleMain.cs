@@ -22,9 +22,7 @@ public class  BattleMain
     List<User> user_list_ = null;
     List<Enemy> enemy_list_ = null;
     List<BattlerBase> action_battler_list_ = new List<BattlerBase>();
-
-
-
+    
     public List<User> UserList
     {
         get { return user_list_; }
@@ -40,13 +38,38 @@ public class  BattleMain
     {
         user_list_ = player_list;
         enemy_list_ = enemy_list;
-        ClearActionBattler();
+        EntryActionBattler();
+        FirstActionBattler();
+
     }
 
-   
+    // 行動するバトラーの登録
+    void EntryActionBattler()
+    {
+        foreach (BattlerBase user in user_list_)
+        {
+            action_battler_list_.Add(user);
+        }
 
+        foreach (BattlerBase enemy in enemy_list_)
+        {
+            action_battler_list_.Add(enemy);
+        }
+
+        // 残り時間でソート
+        action_battler_list_.Sort((a, b) => a.Speed - b.Speed);
+    }
+
+    // 最初に行動するバトラーの設定
+    void FirstActionBattler()
+    {
+        action_battler_list_[0].State = BattlerBase.ActionState.Ready;
+    }
+    
+    // Actionの追加
     public void AddAction(ActionBase action)
     {
+        action.Entity.State = BattlerBase.ActionState.Action;
         action_list_.Add(action);
     }
 
@@ -61,52 +84,47 @@ public class  BattleMain
             a.TimeUpdate();
         }
 
-        // 残り時間でソート
+        // 残り時間でActionをソート
         action_list_.Sort((a, b) => a.RemainingTime - b.RemainingTime);
 
         ActionBase action_top = action_list_[0];
 
         Debug.LogFormat("action_top entity_:{0} target_:{1} ", action_top.Entity, action_top.Target);
 
+        // Actionが実行可能な場合
         if (action_top.IsReady())
         {
+            // Actionの実行
             action_top.Execute(this);
+
+            //  Action完了後の関数を登録
             action_top.CompleteAction = OnActionComplete;
             
+            // 実行したActionの削除
             action_list_.RemoveAt(0);
         }
     }
 
+    // Action完了
     void OnActionComplete(ActionBase action)
     {
-        ChangeActiveBattler(action.Entity);
+        ChangeNextReadyBattler(action.Entity);
     }
-
-
-
-    void ChangeActiveBattler(BattlerBase exec_battler)
+    
+    // 次の行動可能なバトラーの設定
+    void ChangeNextReadyBattler(BattlerBase exec_battler)
     {
         action_battler_list_.Remove(exec_battler);
+
+        // 全てのバトラーの行動が完了した場合は、再登録
         if (action_battler_list_.Count <= 0)
         {
-            ClearActionBattler();
+            EntryActionBattler();
         }
 
+        // 次のバトラーを行動可能状態にする
         action_battler_list_[0].State = BattlerBase.ActionState.Ready;
-
-
+        
     }
-
-    void ClearActionBattler()
-    {
-        foreach(BattlerBase enemy in enemy_list_)
-        {
-            action_battler_list_.Add(enemy);
-        }
-
-        foreach (BattlerBase user in user_list_)
-        {
-            action_battler_list_.Add(user);
-        }
-    }
+    
 }

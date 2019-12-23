@@ -16,7 +16,7 @@ public class AIContoller : MonoBehaviour
         List<Enemy> enemy_list = GetEnemyList();
         foreach (Enemy enemy in enemy_list)
         {
-            enemy.State = Enemy.ActionState.Ready;
+            //enemy.State = Enemy.ActionState.Ready;
         }
 
 
@@ -55,6 +55,7 @@ public class AIContoller : MonoBehaviour
 
     public List<Enemy> GetEnemyList()
     {
+        if (battle_main_ == null) return null;
         return battle_main_.EnemyList;
     }
 

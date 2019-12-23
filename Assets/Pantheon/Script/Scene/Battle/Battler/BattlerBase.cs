@@ -16,6 +16,8 @@ public class BattlerBase : MonoBehaviour
     public int attack_;
     public int defence_;
 
+    public int Speed { get; set; } = 0;
+
     HPGauge hp_gauge_ = null;
     public HPGauge Hpgauge
     {

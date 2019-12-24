@@ -14,6 +14,7 @@ public class PlayerCommoandUI : MonoBehaviour
     public void AttackBtnClick()
     {
         if (battle_main_.UserList[0].State != BattlerBase.ActionState.Ready) return;
+
         AttackAction action = new AttackAction();
         action.Entity = battle_main_.UserList[0];
     

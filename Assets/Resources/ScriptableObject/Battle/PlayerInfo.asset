@@ -15,13 +15,14 @@ MonoBehaviour:
   PlayerInfoList:
   - name_: "\u6697\u9ED2\u9A0E\u58EB"
     level_: 1
-    id_: 0
     model_prefab_: Prefab/Player/Heavyknight
     hp_: 100
+    energy_: 0
     power_: 50
     defense_: 5
     effect_: {fileID: 7936810986580610202, guid: 85f19931bbd546241bdb52b2df19a4d0,
       type: 3}
     effect_transform_: Crusader_Ctrl_RightHandMiddleEffector
     player_image_: Character/KnightFree
-    skill_list_: []
+    skill_list_:
+    - {fileID: 11400000, guid: 0123e5f6b94d1d34994250f083ce78e1, type: 2}

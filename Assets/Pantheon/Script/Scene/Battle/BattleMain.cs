@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class  BattleMain
 {
@@ -22,6 +23,8 @@ public class  BattleMain
     List<User> user_list_ = null;
     List<Enemy> enemy_list_ = null;
     List<BattlerBase> action_battler_list_ = new List<BattlerBase>();
+
+    
     
     public List<User> UserList
     {
@@ -76,7 +79,7 @@ public class  BattleMain
     // Update is called once per frame
     public void Update()
     {
-        if (current_battle_state_ != BattleState.InBattle) return;
+        if (current_battle_state_ != BattleState.InBattle) return;  // バトル中以外は処理しない
         if (action_list_ == null || action_list_.Count <= 0) return;
 
         foreach(ActionBase a in action_list_)
@@ -103,6 +106,62 @@ public class  BattleMain
             // 実行したActionの削除
             action_list_.RemoveAt(0);
         }
+        //エネミーが全滅した？　判定
+        if (CheckDoomEnemy())
+        {
+            //BattleEndに移行
+            current_battle_state_ = BattleState.BattleEnd;
+            //アニメーションの再生
+        }
+        //味方が全滅した？　判定
+        if (CheckDoomUser())
+        {
+            //BattleEndに移行
+            current_battle_state_ = BattleState.BattleEnd;
+            //アニメーションの再生
+        }
+
+    }
+
+    void FinishBattleEndAnimation()
+    {
+        
+
+        Debug.Log(current_battle_state_);
+        if (current_battle_state_ == BattleState.BattleEnd)
+        {
+            InstancePanel();
+        }
+    }
+
+    // 敵が全滅してるかどうか
+    bool CheckDoomEnemy()
+    {
+        bool result = true;
+        foreach(BattlerBase enemy in enemy_list_)
+        {
+            if (enemy.State != BattlerBase.ActionState.Dead)
+            {
+                result = false;
+            }
+           
+        }
+        return result;
+    }
+
+    // 味方が全滅してるかどうか
+    bool CheckDoomUser()
+    {
+        bool result = true;
+        foreach (BattlerBase user in user_list_)
+        {
+            if (user.State != BattlerBase.ActionState.Dead)
+            {
+                result = false;
+            }
+
+        }
+        return result;
     }
 
     // Action完了
@@ -127,4 +186,8 @@ public class  BattleMain
         
     }
     
+     void InstancePanel()
+    {
+
+    }
 }

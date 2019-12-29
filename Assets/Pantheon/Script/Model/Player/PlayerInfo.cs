@@ -33,7 +33,11 @@ public class PlayerModel
         get { return level_;}
         protected set { level_ = value;}
     }
-    public int id_;
+    int id_;
+    public int Id
+    {
+        get { return id_; }
+    }
     [SerializeField] private string model_prefab_;
     public string ModelPrefab
     {
@@ -83,6 +87,11 @@ public class PlayerModel
         protected set { player_image_ = value; }
     }
     [SerializeField] private List<SkillInfo> skill_list_;
+    public List<SkillInfo> SkillList
+    {
+        get { return skill_list_; }
+        protected set { skill_list_ = value; }
+    }
 
- 
+
 }

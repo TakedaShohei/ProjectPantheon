@@ -3,6 +3,10 @@ using System.Collections;
 
 public class User : BattlerBase
 {
+    public PlayerModel PlayerModel
+    {
+        get { return player_model_; }
+    }
     PlayerModel player_model_ = null;
     public void Setup(PlayerModel model)
     {

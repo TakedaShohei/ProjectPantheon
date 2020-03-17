@@ -8,8 +8,10 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     [SerializeField] Transform player_trans_ = null;
     [SerializeField] Transform player_effect_trans_ = null;
     [SerializeField] Transform player_ui_trans_ = null;
+    [SerializeField] Transform player_damage_ui_trans_ = null; 
     [SerializeField] Transform enemy_ui_trans_ = null;
-    [SerializeField] Transform battle_ui_ = null;
+    [SerializeField] BattleUI battle_ui_ = null;
+    [SerializeField] Transform battle_ui_trans_ = null;
     [SerializeField] BattleInfo model_ = null;
     [SerializeField] PlayerInfo player_info_ = null;
     [SerializeField] StageInfo stage_info_ = null;
@@ -29,7 +31,6 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     List<Enemy> enemy_list_ = new List<Enemy>();
 
     BattleMain battle_main_ = null;
-    
     private Sprite sprite;
    
 
@@ -40,16 +41,22 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     {
         StageModel stage_model = arguments[0] as StageModel;
         model_ = stage_model.BattleInfo;
+        BattleData.SetStageModel(stage_model);
         Debug.Log("OnSceneWasLoaded." + model_.name);
     }
 
     void Setup()
     {
         // バトルシーン単体起動の時用
-        model_ = Resources.Load("ScriptableObject/Battle/BattleInfo1_1" ) as BattleInfo;
-        player_info_ = Resources.Load("ScriptableObject/Battle/PlayerInfo") as PlayerInfo;
-        player_command_info_ = Resources.Load("ScriptableObject/Battle/PlayerCommandInfo") as PlayerCommandInfo;
-        stage_info_ = Resources.Load("ScriptableObject/Stage/StageInfo1") as StageInfo;
+        if (model_ == null)
+        {
+            model_ = Resources.Load("ScriptableObject/Battle/BattleInfo1_1") as BattleInfo;
+            player_info_ = Resources.Load("ScriptableObject/Battle/PlayerInfo") as PlayerInfo;
+            player_command_info_ = Resources.Load("ScriptableObject/Battle/PlayerCommandInfo") as PlayerCommandInfo;
+            stage_info_ = Resources.Load("ScriptableObject/Stage/StageInfo1") as StageInfo;
+            BattleData.SetStageModel(stage_info_.StageInfoList[0]);
+        }
+            
         
 
         // 背景をロードして配置
@@ -74,16 +81,21 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
         
         // バトルメイン作成
         battle_main_ = new BattleMain();
-        battle_main_.Setup(user_list_, enemy_list_);
+        battle_main_.Setup(user_list_, enemy_list_, battle_ui_);
 
         // AI
         ai_controller.Setup(battle_main_);
 
         // UIの初期化
         player_commaond_ui_.Setup(battle_main_);
+       
+             //スキルアクションの初期化
+      // skill_aciton_.Setup(battle_main_);
+
 
         // 準備が整ったらバトルスタート
         battle_main_.CurrentBattleState = BattleMain.BattleState.InBattle;
+        
     }
 
     void CreateBackground()
@@ -114,7 +126,6 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
         }
        
     }
-
     void CreateCharaName()
     {
         foreach (PlayerModel player in player_info_.PlayerInfoList)
@@ -139,6 +150,9 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
             HPGauge hp_gauge = Instantiate(enemy_hpbar_prefab,enemy_ui_trans_).GetComponent<HPGauge>();
             hp_gauge.SetUp(enemy.Hp);
 
+            GameObject enemy_damage_text_prehab = player_command_info_.PlayerDamageTextUi;
+            DamageText damage_text = Instantiate(enemy_damage_text_prehab, enemy_ui_trans_).GetComponent<DamageText>();
+            damage_text.gameObject.SetActive(false);
             enemy_effect_trans_ = enemy_go.transform.Find("RightHandEffector");
 
             //ここをリスト化した意味は？　リスト化したのはデータの更新のため？
@@ -149,6 +163,7 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
             enemy_data.EffectTransform = enemy_effect_trans_;
             enemy_data.Setup(enemy);
             enemy_list_.Add(enemy_data);
+            enemy_data.DamageText = damage_text;
         }
     }
 
@@ -171,6 +186,9 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
             HPGauge hp_gauge = Instantiate(player_hpbar_prefab, player_ui_trans_).GetComponent<HPGauge>();
             hp_gauge.SetUp(player.Hp);
 
+            GameObject player_damage_text_prehab = player_command_info_.PlayerDamageTextUi;
+            DamageText damage_text = Instantiate(player_damage_text_prehab, player_damage_ui_trans_).GetComponent<DamageText>();
+            damage_text.gameObject.SetActive(false);
             //Instance effect_prehab
             //Heavyknight(Clone)/Crusader_Ctrl_Reference/Crusader_Ctrl_RightHandThumbEffector
 
@@ -194,7 +212,7 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
             user_data.EffectTransform = player_effect_trans_;
             user_data.Setup(player);            
             user_list_.Add(user_data);
-
+            user_data.DamageText = damage_text;
 
         }
     }
@@ -203,7 +221,7 @@ public class BattleScene : MonoBehaviour, ISceneWasLoaded
     void CreatePlayerCommand()
     {
         GameObject player_command_ui_ = player_command_info_.PlayerCommandUI;
-        GameObject button = Instantiate(player_command_ui_, battle_ui_);
+        GameObject button = Instantiate(player_command_ui_, battle_ui_trans_);
         button.transform.position = new Vector3(0, 0, 0);
     }
 

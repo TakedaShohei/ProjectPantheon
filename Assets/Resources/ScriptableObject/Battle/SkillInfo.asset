@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc867646edb0ce4cad461b7b9a857eb, type: 3}
   m_Name: SkillInfo
   m_EditorClassIdentifier: 
-  name_: "\u5F37\u5316"
+  name_: "\u653B\u6483\u5F37\u5316"
   id_number_: 1
-  damage_value_: 0
+  skill_type_name_: 1
+  damage_value_: 0.1
   explain_: "\u653B\u6483\u529B1\u5272\u5897\u52A0\u3055\u305B\u308B"
   skill_image_: {fileID: 21300000, guid: 221d9c6604759484a95c1545127d8a78, type: 3}
-  effect_prehab_: {fileID: 0}
+  effect_prehab_: {fileID: 1000011797152326, guid: acf39d9f4addf294d93fa56fa373961b,
+    type: 3}
+  effect_transform_: crusader_peredelka_Effect_Transform
+  wait_turn_: 2

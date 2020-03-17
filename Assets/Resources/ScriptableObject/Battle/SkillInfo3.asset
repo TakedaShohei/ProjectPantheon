@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdc867646edb0ce4cad461b7b9a857eb, type: 3}
+  m_Name: SkillInfo3
+  m_EditorClassIdentifier: 
+  name_: "\u653B\u6483\u6E1B\u5C11"
+  id_number_: 3
+  skill_type_name_: 3
+  damage_value_: 0.1
+  explain_: "\u6575\u306E\u653B\u64831\u5272\u6E1B\u5C11\u3055\u305B\u308B"
+  skill_image_: {fileID: 21300000, guid: 221d9c6604759484a95c1545127d8a78, type: 3}
+  effect_prehab_: {fileID: 1000011128802252, guid: 96730f8640590934eacb6f860058e7f9,
+    type: 3}
+  effect_transform_: enemy
+  wait_turn_: 0

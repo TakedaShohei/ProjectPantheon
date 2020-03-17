@@ -6,68 +6,78 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class VolumeManager : MonoBehaviour
 {
-    [SerializeField]
-    private AudioMixer audioMixer;
-
-    [SerializeField]
-    private AudioSource source;
-
-    [SerializeField]
-    private AudioClip bgm_title_;
-    [SerializeField]
-    private string SceneName;
-
-
+    public MusicInfo music_info = null;
+    public static float music_volume_ = 0;
+    
+    [SerializeField] Slider music_slider_ = null;
+    [SerializeField] private AudioMixer audio_mixer_;
     //　GameSoundShot
-    [SerializeField]
-    private AudioMixerSnapshot gameSoundShot;
+    [SerializeField] private AudioMixerSnapshot gameSoundShot;
     //　OptionSoundShot
 
-    public bool DontDestroyEnabled = true;
-
+    
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        music_slider_ = GetComponent<Slider>();
+        float min_valume_ = -50f;
+        float max_valume_ = 5f;
+        
+        //スライダーの最大値の設定
+        //music_slider_.minValue = min_valume_;
 
-        //使用するAudioSource取得
-      //  source = GetComponent<AudioSource>();
+        //music_slider_.maxValue = max_valume_;
 
-        //最初のBGM再生
-        //source.m = audioMixer;
-        //source.Play();
-
-        //シーンが切り替わった時に呼ばれるメソッドを登録
-
-    }
-
-
-    void Update()
-    {
-
-       
+        
 
 
 
 
     }
 
-    public void SetMaster(float volume)
+    public  void SetUp()
     {
-        audioMixer.SetFloat("MasterVol", volume);
-    }
-
-    public void SetBGM(float volume)
-    {
-        audioMixer.SetFloat("BGMVol", volume);
-        Debug.Log(volume);
         
     }
 
-    public void SetSE(float volume)
+    
+    public void SetMaster(float volume)
     {
-        audioMixer.SetFloat("SEVol", volume);
+        audio_mixer_.SetFloat("MasterVol", volume);
     }
 
+    public void SetBGM()
+    {
+
+        SoundManager.Instance.BgmVolume = music_slider_.value;
+
+        Debug.Log(music_volume_);
+        
+    }
+
+    public static void UpdateMusic(float current_volume)
+    {
+        
+    }
+
+    void UpdateSlider()
+    {
+      //  music_slider_.value = ;
+
+    }
+
+    public void SetSE()
+    {
+        audio_mixer_.SetFloat("SEVol", music_volume_);
+    }
+
+    //使用するAudioSource取得
+    //  source = GetComponent<AudioSource>();
+
+    //最初のBGM再生
+    //source.m = audioMixer;
+    //source.Play();
+
+    //シーンが切り替わった時に呼ばれるメソッドを登録
 
 
 

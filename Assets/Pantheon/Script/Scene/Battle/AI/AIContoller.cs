@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class AIContoller : MonoBehaviour
 {
-    BattleMain battle_main_ = null;
+   public BattleMain battle_main_ = null;
     AiSetting ai_setting_ = null;
 
     public void Setup(BattleMain battle_main)
@@ -31,8 +31,10 @@ public class AIContoller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+     
         List<Enemy> enemy_list = GetEnemyList();
-        foreach(Enemy enemy in enemy_list)
+       
+        foreach (Enemy enemy in enemy_list)
         {
             if (enemy.State == Enemy.ActionState.Ready)
             {

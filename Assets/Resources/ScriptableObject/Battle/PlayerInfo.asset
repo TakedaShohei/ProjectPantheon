@@ -19,10 +19,13 @@ MonoBehaviour:
     hp_: 100
     energy_: 0
     power_: 50
-    defense_: 5
+    defense_: 50
     effect_: {fileID: 7936810986580610202, guid: 85f19931bbd546241bdb52b2df19a4d0,
       type: 3}
     effect_transform_: Crusader_Ctrl_RightHandMiddleEffector
     player_image_: Character/KnightFree
     skill_list_:
     - {fileID: 11400000, guid: 0123e5f6b94d1d34994250f083ce78e1, type: 2}
+    - {fileID: 11400000, guid: 096616bb278ec9c4790769edd4004e23, type: 2}
+    - {fileID: 11400000, guid: e766c2e356e24f241abf04db0c689dc5, type: 2}
+    - {fileID: 11400000, guid: 316ceb0e0cca48745828f88c34de8e8d, type: 2}

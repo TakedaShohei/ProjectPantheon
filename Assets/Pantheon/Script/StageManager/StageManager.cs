@@ -42,10 +42,13 @@ public class StageManager : MonoBehaviour
     }
     public void LoadingSelectStage4()
     {
+
         SceneManager.LoadScene("SelectStage4");
     }
     public void LoadingSelectStage()
     {
+        
+
         SceneManager.LoadScene("SelectStage");
     }
 
@@ -57,5 +60,12 @@ public class StageManager : MonoBehaviour
     {
         SceneManager.LoadScene("Option");
     }
-
+    public void LoadingCharacter()
+    {
+        SceneManager.LoadScene("Character");
+    }
+    public void LoadingCharacterList()
+    {
+        SceneManager.LoadScene("CharaList");
+    }
 }

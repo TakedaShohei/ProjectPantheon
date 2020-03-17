@@ -24,7 +24,12 @@ public class SkillInfo : ScriptableObject
         get { return id_number_; }
         protected set { id_number_ = value; }
     }
-
+    [SerializeField] private int skill_type_name_;
+    public int SkillTypeName
+    {
+        get { return skill_type_name_; }
+        protected set { skill_type_name_= value; }
+    }
     [SerializeField] private float damage_value_;
     public float DamageValue
     {
@@ -51,6 +56,27 @@ public class SkillInfo : ScriptableObject
     {
         get { return effect_prehab_; }
         protected set { effect_prehab_ = value; }
+    }
+
+    [SerializeField] private string effect_transform_;
+    public string EffectTransform
+    {
+        get { return effect_transform_; }
+        protected set { effect_transform_ = value; }
+    }
+
+    [SerializeField] private int wait_turn_;
+    public int WaitTurn
+    {
+        get { return wait_turn_; }
+        protected set { wait_turn_ = value; }
+    }
+
+    private int current_wait_turn_;
+    public int CurrentWaitTurn
+    {
+        get { return current_wait_turn_; }
+        set { current_wait_turn_ = value; }
     }
 
 }

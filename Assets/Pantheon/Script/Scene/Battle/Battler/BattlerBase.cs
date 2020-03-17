@@ -12,17 +12,23 @@ public class BattlerBase : MonoBehaviour
         Dead
     }
 
-    public int hp_;
-    public int attack_;
-    public int defence_;
-
-    public int Speed { get; set; } = 0;
+    BattlerStatus status_ = null;
+    public BattlerStatus Status
+    {
+        get { return status_; }
+    }
 
     HPGauge hp_gauge_ = null;
     public HPGauge Hpgauge
     {
         get { return hp_gauge_; }
         set { hp_gauge_ = value; }
+    }
+    DamageText damage_text_ = null;
+    public DamageText DamageText
+    {
+        get { return damage_text_; }
+        set { damage_text_ = value; }
     }
 
     System.Action attack_impact_ = null;
@@ -44,6 +50,13 @@ public class BattlerBase : MonoBehaviour
     {
         get { return attack_back_; }
         set { attack_back_ = value; }
+    }
+
+    System.Action hit_point_ = null;
+    public System.Action HitPoint
+    {
+        get { return hit_point_; }
+        set { hit_point_ = value; }
     }
 
     ParticleSystem particle_effect_ = null;
@@ -98,6 +111,8 @@ public class BattlerBase : MonoBehaviour
 
     protected void Setup()
     {
+        status_ = new BattlerStatus();
+
         animator_ = game_object_.GetComponent<Animator>();
         base_pos_ = move_transform_.position;
         targe_pos_ = move_transform_.position;
@@ -132,11 +147,19 @@ public class BattlerBase : MonoBehaviour
         if (attack_back_ != null) attack_back_();
     }
 
+    public void AnimationHitPoint()
+    {
+        if (hit_point_!= null) hit_point_();
+    }
+
     public void Move(Vector3 add_pos)
     {
         if (move_transform_ == null) return;
         targe_pos_ = base_pos_ + add_pos;
     }
+
+    
+
 
     private void Update()
     {
@@ -145,6 +168,8 @@ public class BattlerBase : MonoBehaviour
             move_transform_.position += (targe_pos_ - move_transform_.position) / 10;
         }
     }
+
+    
 
     /*public void UpdateStaus()
     {

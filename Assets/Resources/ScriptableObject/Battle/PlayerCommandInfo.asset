@@ -18,3 +18,5 @@ MonoBehaviour:
     type: 3}
   player_command_ui_: {fileID: 7359126336417429972, guid: f4350ec144814604a9f79b9cda545d5c,
     type: 3}
+  player_damage_text_ui_: {fileID: 6214149727673337899, guid: 94a7164e17d631c4687d243aaf1fb28f,
+    type: 3}

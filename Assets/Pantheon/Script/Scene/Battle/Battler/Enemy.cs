@@ -14,13 +14,10 @@ public class Enemy : BattlerBase
 
     public void  Setup(EnemyModel model)
     {
-        hp_ = model.Hp;
-        attack_ = model.Power;
-        defence_ = model.Defense;
+        base.Setup();
+        Status.Setup(model);
         ai_ = GetAI(model.AiId);
         enemy_model = model;
-
-        Setup();
         
     }
 
@@ -43,6 +40,7 @@ public class Enemy : BattlerBase
     {
         GameObjectBattler.SetActive(false);
         Hpgauge.gameObject.SetActive(false);
+
         
     }
 

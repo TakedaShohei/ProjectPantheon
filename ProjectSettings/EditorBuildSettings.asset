@@ -14,12 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Pantheon/Scenes/Battle/Battle.unity
     guid: 903823d4650a11a4587b75e6e26d30e5
-  - enabled: 1
-    path: Assets/Pantheon/Scenes/Battle/Stage2.unity
-    guid: 90c575cbfb25bbc45aea1c58f90b46f7
-  - enabled: 1
-    path: Assets/Pantheon/Scenes/Battle/Stage3.unity
-    guid: bf6bdacf62465364f9588a3468c6485a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Pantheon/Scenes/Stage/BaseSelect.unity
     guid: b36875c17163c7c4685c8304800b62e8
@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Pantheon/Scenes/Stage/Titile.unity
     guid: a8f4f0b79fba6c14e9e2e373547dee89
+  - enabled: 1
+    path: Assets/Pantheon/Scenes/Stage/Character.unity
+    guid: 75f1a7f3d31e8c74093ae31aba968cb9
+  - enabled: 1
+    path: Assets/Pantheon/Scenes/Character/CharaList.unity
+    guid: 92fa8174c705db24bbbd943be267ab8c
   m_configObjects: {}

@@ -10,13 +10,13 @@ public class AttackAction : ActionBase
     {
         
         Entity.Animator.SetTrigger("attack");
-
         
         
-
-        Entity.AttackImpact2 += OnRunImpact;
-        Entity.AttackImpact += OnAttackImppact;
-        Entity.AttackBack += OnAttackBack;
+        Entity.AttackImpact2 = OnRunImpact;
+        Entity.AttackImpact = OnAttackImppact;
+        Entity.AttackBack = OnAttackBack;
+        Target.HitPoint = OnHitPoint;
+       
     }
 
     private void OnAttackBack()
@@ -34,8 +34,9 @@ public class AttackAction : ActionBase
         GameObject enemy_go = Instantiate(enemy_prefab, target_.EffectTransform);
         */
         //Entity.EffectParticle.Play();
+        // ダメージ処理.
         Damge(Entity, Target);
-
+      
         if (Entity.EffectParticle)
         {
             ParticleSystem particle = Entity.EffectParticle.GetComponent<ParticleSystem>();
@@ -58,4 +59,8 @@ public class AttackAction : ActionBase
         
     }
     
+    void OnHitPoint()
+    {
+        Target.DamageText.gameObject.SetActive(false);
+    }
 }

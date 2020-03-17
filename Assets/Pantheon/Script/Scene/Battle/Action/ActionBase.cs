@@ -3,12 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
 
-public class ActionBase
+public class ActionBase : MonoBehaviour
 {
     BattlerBase entity_ = null;
     BattlerBase target_ = null;
     System.Action<ActionBase> cmoplete_action_ = null;
-   
     public BattlerBase Entity
     {
         get { return entity_; }
@@ -50,6 +49,7 @@ public class ActionBase
     }
     
     private Timer timer = new Timer(1000/60);
+    public Timer damage_timer = new Timer(5);
     int counter = 0;
 
     public ActionBase()
@@ -62,13 +62,23 @@ public class ActionBase
         
     }
 
+    /// <summary>
+    /// ダメージ処理
+    /// <param name="entiry">ダメージを与えるバトラー</param>
+    /// <param name="target">ダメージを受けるバトラー)</param>
+    /// </summary>
     public void Damge(BattlerBase entiry, BattlerBase target)
     {
-        Debug.LogFormat("target.hp_:{0}", target.hp_);
-        int damge = entiry.attack_ - target.defence_;
-        target.hp_ -= damge;
+        Debug.LogFormat("target.hp_:{0}", target.Status.Hp);
+        int damge = entiry.Status.Attack - (target.Status.Defence/2);
+        //int damge = (int)(entiry.Status.Attack / (target.Status.Defence / 10));
+        if (damge < 1) damge = 1;
+        target.Status.Hp -= damge;
         target.Animator.SetTrigger("Damage");
+        target.DamageText.Setup(damge);
+        target.DamageText.gameObject.SetActive(true);
         target.Hpgauge.UpdateHp(-damge);
+        
         
 
         //target.hpber.update();
@@ -77,8 +87,8 @@ public class ActionBase
         //　死亡したら
 
         Debug.LogFormat("damge:{0}", damge);
-        Debug.LogFormat("target.hp_:{0}", target.hp_);
-        if (target.hp_ <= 0)
+        Debug.LogFormat("target.hp_:{0}", target.Status.Hp);
+        if (target.Status.Hp <= 0)
         {
             Debug.Log("you die");
             target.Die();
@@ -92,21 +102,25 @@ public class ActionBase
 
     public void Damge(BattlerBase entiry, BattlerBase target, float attack_rate)
     {
-        Debug.LogFormat("target.hp_:{0}", target.hp_);
-        int damge = (int)(entiry.attack_ * attack_rate) - target.defence_;
-        target.hp_ -= damge;
+        Debug.LogFormat("target.hp_:{0}", target.Status.Hp);
+        int damge = ((int)(entiry.Status.Attack * attack_rate) - (target.Status.Defence/2));
+        //int damge = (int)(entiry.Status.Attack * attack_rate) / (target.Status.Defence / 50);
+        if (damge < 1) damge = 1;
+        target.DamageText.Setup(damge);
+        target.DamageText.gameObject.SetActive(true);
+        target.Status.Hp -= damge;
         target.Animator.SetTrigger("Damage");
         
         //target.hpber.update();
         //tarege.ShowDamge(damge);
         // 演出
         //　死亡したら
-        if (target.hp_ <= 0)
+        if (target.Status.Hp <= 0)
         {
             target.Die();
         }
         Debug.LogFormat("damge:{0}", damge);
-        Debug.LogFormat("target.hp_:{0}", target.hp_);
+        Debug.LogFormat("target.hp_:{0}", target.Status.Hp);
        
     }
 
@@ -114,6 +128,7 @@ public class ActionBase
     {
         
     }
-    
+
+   
 
 }

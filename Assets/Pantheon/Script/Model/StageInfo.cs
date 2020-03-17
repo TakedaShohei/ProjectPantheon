@@ -22,6 +22,14 @@ public class StageModel
         get { return name_; }
         protected set { name_ = value; }
     }
+
+    [SerializeField] private int chapter_id_;
+    public int ChapterId
+    {
+        get { return chapter_id_; }
+        set { chapter_id_ = value; }
+    }
+
     [SerializeField] private int id_;
     public int Id
     {

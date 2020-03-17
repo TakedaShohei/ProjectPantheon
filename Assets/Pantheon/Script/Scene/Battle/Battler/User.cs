@@ -10,11 +10,10 @@ public class User : BattlerBase
     PlayerModel player_model_ = null;
     public void Setup(PlayerModel model)
     {
-        hp_ = model.Hp;
-        attack_ = model.Power;
-        defence_ = model.Defense;
-        player_model_ = model;
         Setup();
+        Status.Setup(model);
+        player_model_ = model;
+        SkillWaitCountReset();
     }
 
     public override void DieEffect()
@@ -23,6 +22,25 @@ public class User : BattlerBase
         AttackImpact = OnDeathImact;
         
     }
+
+    // スキル待ち時間を進める
+    public void SkillWaitCountDown()
+    {
+        foreach(SkillInfo skill in player_model_.SkillList)
+        {
+            if (0 < skill.CurrentWaitTurn) skill.CurrentWaitTurn--;
+        }
+    }
+
+    // スキル待ち時間をリセット
+    public void SkillWaitCountReset()
+    {
+        foreach (SkillInfo skill in player_model_.SkillList)
+        {
+            skill.CurrentWaitTurn = 0;
+        }
+    }
+
     void OnDeathImact()
     {
         GameObjectBattler.SetActive(false);

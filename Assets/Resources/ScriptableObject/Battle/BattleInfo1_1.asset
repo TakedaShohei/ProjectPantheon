@@ -22,7 +22,7 @@ MonoBehaviour:
       id_: 1
       model_prefab_: Prefab/Enemy/GhostTiger
       hp_: 100
-      power_: 10
+      power_: 50
       defense_: 5
       skill_list_: []
       position_: 0

@@ -1246,9 +1246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b1c64a7f03a8e45801053263f16900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp_: 0
-  attack_: 0
-  defence_: 0
   move_transform_: {fileID: 0}
   effect_transform_: {fileID: 0}
   effect_particle_: {fileID: 0}
@@ -4609,7 +4606,7 @@ GameObject:
   - component: {fileID: 4680324864596370}
   - component: {fileID: 137480357802613718}
   m_Layer: 0
-  m_Name: crusader_peredelka_UV_Group29013
+  m_Name: crusader_peredelka_Effect_Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -14,16 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StageInfoList:
   - name_: "\u30B9\u30C6\u30FC\u30B81-1"
+    chapter_id_: 1
     id_: 1
     material_: {fileID: 2100000, guid: 046e5567a4926d640a3e38fa3f855d70, type: 2}
     battle_info_: {fileID: 11400000, guid: 1f2db63fecfe02f47ae08b175b36196a, type: 2}
     novel_info_: {fileID: 11400000, guid: 32f91bac11203a04cbbfcfe1a8e1b0f8, type: 2}
   - name_: "\u30B9\u30C6\u30FC\u30B81-2"
+    chapter_id_: 1
     id_: 2
     material_: {fileID: 0}
     battle_info_: {fileID: 11400000, guid: 1f2db63fecfe02f47ae08b175b36196a, type: 2}
     novel_info_: {fileID: 11400000, guid: 353220c9de7703f4e9566abaf0ed389d, type: 2}
   - name_: "\u30B9\u30C6\u30FC\u30B81-3"
+    chapter_id_: 1
     id_: 3
     material_: {fileID: 0}
     battle_info_: {fileID: 11400000, guid: 1f2db63fecfe02f47ae08b175b36196a, type: 2}

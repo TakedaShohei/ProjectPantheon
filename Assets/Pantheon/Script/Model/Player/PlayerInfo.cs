@@ -80,6 +80,7 @@ public class PlayerModel
         get { return effect_transform_; }
         protected set { effect_transform_ = value; }
     }
+
     [SerializeField] private string player_image_;
     public string PlayerImage
     {

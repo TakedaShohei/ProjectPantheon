@@ -27,5 +27,10 @@ public class PlayerCommandInfo : ScriptableObject
         get { return player_command_ui_; }
         protected set { player_command_ui_ = value; }
     }
-
+    [SerializeField] private GameObject player_damage_text_ui_;
+    public GameObject PlayerDamageTextUi
+    {
+        get { return player_damage_text_ui_; }
+        protected set { player_damage_text_ui_ = value; }
+    }
 }
